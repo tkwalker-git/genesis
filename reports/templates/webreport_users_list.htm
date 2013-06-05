@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML {$html_attrs}><HEAD><TITLE>Webreport Users</TITLE>
+<link REL="stylesheet" href="include/style.css" type="text/css"><!--[if IE]><link REL="stylesheet" href="include/styleIE.css" type="text/css"><![endif]-->{BEGIN style_block}
+<STYLE>
+#height100{$id} {padding:10px;}
+#mastertable_block{$id} {margin-left:50px;margin-top:10px}
+#toplinks_block{$id} {width:100%; text-align:right;padding:3px}
+#toplinks_block{$id} * {padding:0px 10px;}
+#left_block{$id} { position:absolute;width:200px;{BEGIN RTL_block} right:10px;{END RTL_block}{BEGIN LTR_block} left:10px;{END LTR_block} overflow:visible;}
+#search_records_block{$id} {width:100%;}
+#search_records_block{$id} > * {vertical-align:middle;}
+#search_records_block{$id} select {margin:0px 0px;}
+#login_block{$id},#languages_block{$id} {padding:10px; margin-bottom:3px}
+#login_block{$id} div {margin-left:0px; padding:5px 0px;}
+#menu_block{$id} {margin-bottom:3px;width:auto;}
+{BEGIN shiftstyle_block}
+#records_block{$id} {padding-left:203px;{BEGIN RTL_block}padding:0px;padding-right:203px;{END RTL_block}}
+{END shiftstyle_block}
+.listIcons img.listIcon{margin:0 3px;opacity:0.3;filter:alpha(opacity=30);}
+#recordcontrols_block{$id} {padding:10px;}
+#record_controls{$id} > *,#newrecord_controls{$id} > * {margin:2px;vertical-align:middle;}
+#grid_block{$id} {margin-top:2px;}
+.grid_recordheader {padding:0 5px 5px}
+.grid_recordheader a {margin:0px 5px;}
+form#frmAdmin{$id} {display:inline;}
+body{margin:0px;padding:0px;}
+#searchOptions{$id}{margin-bottom: 3px;}
+#searchform{$id}{/*float: left;*/padding-left: 5px;}
+#searchPanelContainer{$id}{width: 200px}
+
+/*report styles*/
+#export_links{$id} * {padding:0}
+
+</STYLE>
+{END style_block}
+<META name=GENERATOR content="MSHTML 8.00.7600.16588"></HEAD>
+<BODY {$bodyattrs} marginwidth="0" marginheight="0">{BEGIN body}
+<DIV id="height100{$id}">{$header} 
+{BEGIN toplinks_block}<DIV id="toplinks_block{$id}"></DIV>{END toplinks_block}
+{BEGIN search_records_block}<DIV id="search_records_block{$id}" class="linedownbody main_table2 toplist">
+<TABLE 
+style="BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none" 
+width="100%">
+  <TBODY>
+  <TR>
+    <TD width=22 noWrap><img src="include/img/arrow_topmenu.gif" align="absmiddle" alt=" "> 
+    </TD>
+    <TD noWrap align=left>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TD>
+    <TD noWrap align=right>{BEGIN details_block}<SPAN id="detFound{$id}">Details found: <B>{$records_found}</B>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>{END details_block} 
+      {BEGIN pages_block}<SPAN id="pageOf{$id}">Page <B>{$page}</B> of <B>{$maxpages}</B></SPAN>{END pages_block} 
+      &nbsp;&nbsp;&nbsp;&nbsp; {BEGIN recordspp_block}<SPAN id="recordspp_block{$id}">Records Per Page: <SELECT 
+        {$recordspp_attrs}><option value="10" {$rpp10_selected}>10</OPTION> <option value="20" {$rpp20_selected}>20</OPTION> <option value="30" {$rpp30_selected}>30</OPTION> <option value="50" {$rpp50_selected}>50</OPTION> <option value="100" {$rpp100_selected}>100</OPTION> <option value="500" {$rpp500_selected}>500</OPTION></SELECT> </SPAN>{END recordspp_block}</TD></TR></TBODY></TABLE></DIV>{END search_records_block}
+{BEGIN left_block}<DIV id="left_block{$id}">
+<DIV style="FONT-WEIGHT: normal" class="blackshade toplist">&nbsp; Logged on 
+as&nbsp;<B>{$username}</B></DIV><FONT 
+face="Times New Roman"></FONT>
+<DIV class="blackshade toplist"><BR>&nbsp; <A class=tablelinks 
+href="login.php?a=logout" {$logoutlink_attrs}>Log out</A>&nbsp;</DIV>
+<DIV class="blackshade toplist"><BR>&nbsp; <A class=tablelinks 
+href="webreport.php">Web Reports</A></DIV>
+<DIV class="blackshade toplist">{BEGIN changepwd_link}<BR>&nbsp; <A 
+class=tablelinks href="changepwd.php" {$changepwdlink_attrs}>Change 
+password</A>&nbsp;{END changepwd_link}<BR>&nbsp;&nbsp; 
+<!-- MenuEnd --></DIV></DIV>{END left_block}
+<DIV id="records_block{$id}" {$marginStyle} moveForSearch="move{$id}">
+{BEGIN recordcontrols_block}<DIV id="recordcontrols_block{$id}" class=main_table2>{BEGIN newrecord_controls}<SPAN id="newrecord_controls{$id}">{BEGIN add_link}<SPAN class=buttonborder><INPUT class=button value="Add new" type=button {$addlink_attrs}></SPAN>{END add_link}&nbsp;</SPAN>{END newrecord_controls}{BEGIN record_controls}<SPAN id="record_controls{$id}">{BEGIN editselected_link}<SPAN class=buttonborder {$editselectedlink_span}><INPUT class=button value="Edit selected" type=button {$editselectedlink_attrs}></SPAN>{END editselected_link} 
+{BEGIN saveall_link}<SPAN class=buttonborder {$savealllink_span}><INPUT class=button value="Save all" type=button {$savealllink_attrs}></SPAN>{END saveall_link} 
+{BEGIN cancelall_link}<SPAN class=buttonborder {$cancelalllink_span}><INPUT class=button value=Cancel type=button {$cancelalllink_attrs}></SPAN>{END cancelall_link} 
+{BEGIN deleteselected_link}<SPAN class=buttonborder {$deleteselectedlink_span}><INPUT class=button value="Delete selected" type=button {$deleteselectedlink_attrs}></SPAN>{END deleteselected_link} 
+</SPAN>{END record_controls}</DIV>{END recordcontrols_block}
+<DIV id="usermessage{$id}" class=message>{$user_message}</DIV>
+{BEGIN grid_block}<DIV id="grid_block{$id}">
+<TABLE class=data border=0 cellSpacing=0 cellPadding=5 name="maintable">
+  {BEGIN grid_header}<THEAD>
+  <TR class=blackshade vAlign=top {$gridHeader_attrs}>{BEGIN record_header}
+    {BEGIN listIcons_column}<TH class="headerlist listIcons" noWrap align=middle {$widthListIcons}>&nbsp;</TH>{END listIcons_column}
+    {BEGIN checkbox_column}<TH class=headerlist width=20 align=middle><INPUT type=checkbox {$checkboxheader_attrs}> 
+    </TH>{END checkbox_column}
+    {BEGIN username_fieldheadercolumn}<TH style="VERTICAL-ALIGN: baseline" class=headerlist align=middle>{BEGIN username_fieldheader}<A 
+      class=tablelinks {$username_orderlinkattrs}>Username</A> {END username_fieldheader}</TH>{END username_fieldheadercolumn}
+    {BEGIN password_fieldheadercolumn}<TH style="VERTICAL-ALIGN: baseline" class=headerlist align=middle>{BEGIN password_fieldheader}<A 
+      class=tablelinks {$password_orderlinkattrs}>Password</A> {END password_fieldheader}</TH>{END password_fieldheadercolumn}
+    {BEGIN email_fieldheadercolumn}<TH style="VERTICAL-ALIGN: baseline" class=headerlist align=middle>{BEGIN email_fieldheader}<A 
+      class=tablelinks {$email_orderlinkattrs}>Email</A> {END email_fieldheader}</TH>{END email_fieldheadercolumn}
+    {BEGIN endrecordheader_block}<TH class=body2></TH>{END endrecordheader_block}{END record_header}</TR></THEAD>{END grid_header}
+  <TBODY>{BEGIN grid_row}
+  <TR vAlign=top {$rowattrs} {$rowstyle}>{BEGIN grid_record}
+    {BEGIN listIcons_column}<TD class="borderbody listIcons" vAlign=middle noWrap align=middle>{BEGIN inlineedit_column}{BEGIN inlineedit_link}<A class=tablelinks title="Inline Edit" {$inlineeditlink_attrs}><IMG 
+      class=listIcon border=0 alt="Inline Edit" align=middle 
+      src="images/icon_inline_edit_new.gif"></A>{END inlineedit_link}{END inlineedit_column} {BEGIN view_column}{BEGIN view_link}<A class=tablelinks title=View {$viewlink_attrs}><IMG class=listIcon 
+      border=0 alt=View align=middle src="images/icon_view_new.gif"></A>{END view_link}{END view_column} </TD>{END listIcons_column}
+    {BEGIN checkbox_column}<TD class=borderbody vAlign=middle width=20 align=middle>{BEGIN checkbox}<INPUT type=checkbox {$checkbox_attrs}> {END checkbox}</TD>{END checkbox_column}
+    {BEGIN username_fieldcolumn}<TD class=borderbody vAlign=middle {$username_style}>{$username_value} </TD>{END username_fieldcolumn}
+    {BEGIN password_fieldcolumn}<TD class=borderbody vAlign=middle {$password_style}>{$password_value} </TD>{END password_fieldcolumn}
+    {BEGIN email_fieldcolumn}<TD class=borderbody vAlign=middle {$email_style}>{$email_value} 
+    </TD>{END email_fieldcolumn}
+    {BEGIN endrecord_block}<TD class=body2 {$endrecordblock_attrs}></TD>{END endrecord_block}{END grid_record}</TR>{END grid_row}</TBODY></TABLE></DIV>{END grid_block}
+{BEGIN pagination_block}<DIV id="pagination_block{$id}" class=toplist align=center>{$pagination}</DIV>{END pagination_block}
+{BEGIN message_block}<DIV class=toplist align=center valign="middle"><B>{$message}</B></DIV>{END message_block}</DIV>{$footer} 
+</DIV>{END body}</BODY></HTML>

@@ -1,0 +1,29 @@
+<?php
+
+require_once('../admin/database.php');
+require_once('../site_functions.php');
+include_once('../facebook.php');
+
+$facebook = new Facebook(array(
+
+		'appId'      => "255510927903206",
+		'secret'     => "e961b7e344dd5dda82f43644d9e9f574",
+		'cookie'     => true
+));
+
+$data = $facebook->getSignedRequest();
+
+$pageid	= $data['page']['id'];
+$userid	= $data['user_id'];
+$app_id	= '255510927903206';
+
+
+$flyer_id = attribValue('fanpages', 'eg_event_id', "where fb_page_id='$pageid' and fb_app_id='". $app_id ."' ORDER BY id DESC");
+
+if ( $flyer_id > 0  )
+	$html = file_get_contents("http://restorationhealth.yourhealthsupport.com/fbflayer/index.php?id=" . $flyer_id . $append);
+else
+	$html = '<h1>Showcase Creator does not found.</h1>';
+echo $html;
+
+?>

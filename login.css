@@ -1,0 +1,109 @@
+/* login.php */
+
+
+
+#login-main{
+	margin:0 auto;
+	padding:0;
+	width:606px;
+	position:relative;
+	margin-top:40px;
+	
+}
+#login-main-top{
+	float:left;
+	background:url(images/login-top3.png) no-repeat;
+	width:606px;
+	height:9px;
+	
+}
+#login-main-middle{
+	float:left;
+	background:url(images/login-middle.png) repeat-y;
+	width:606px;
+ /*	font-family:Times New Roman; */
+	padding-bottom:40px;
+}
+#login-main-middle span{
+	font-size:14px;
+	color:#00abdf;
+	font-weight:bold;
+}
+#login-main-middle span a{
+	text-decoration:none;
+	color:#00abdf;
+}
+
+#login-head{
+	float:left;
+}
+#heading{
+	float:left;
+	font-size:24px;
+	margin-left:28px;
+	padding-bottom: 5px;
+    width: 380px;
+}
+#already-member{
+	float:left;
+	font-size:14px;
+	margin-top: 8px;
+}
+
+
+#shadow{
+	float:left;
+	background:url(images/login-top-shade.png) no-repeat;
+	width:586px;
+	height:18px;
+	padding-bottom: 20px;
+}
+.fb-connect{
+	float:left;
+	/*background:url(images/fb-connect2.png) no-repeat; */
+	width:300px;
+	height:44px;
+	margin-left: 26px;
+}
+#form{
+	float:left;
+	width:504px;
+	margin-left: 28px;
+}
+.input-row{
+	float:left;
+	width:100%;
+	margin-top: 20px;
+}
+.input-label{
+	float:left;
+	font-size:18px;
+	width:100%;
+}
+.input-field{
+	float:left;
+	width:100%;
+}
+.input-field input{
+	float:left;
+	border:1px solid #e5e5e5;
+	width:330px;
+	height:34px;
+}
+.forgot-passwd{
+	float:left;
+}
+.form-submit{
+	float:left;
+	padding-left:377px;
+}
+.submit-btn{
+	float:left;
+}
+
+#login-main-bottom{
+	float:left;
+	background:url(images/login-main-bottom.png) no-repeat;
+	width:606px;
+	height:12px;
+}

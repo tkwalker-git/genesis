@@ -1,0 +1,180 @@
+<?php 
+require_once('admin/database.php'); 
+include_once('facebook.php');
+
+
+
+$loginPageUrl	=	"http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+if($_SERVER['HTTP_REFERER']!=$loginPageUrl){
+$_SESSION['REFERER'] = $_SERVER['HTTP_REFERER'];
+}
+
+// http://localhost/site/login.php
+// http://localhost/site/login.php
+
+
+if ( isset ($_GET['rUrl']) )
+	$_SESSION['REDIRECT_URL'] = urldecode($_GET['rUrl']);
+
+if(!isset($_SESSION['logedin'])){
+	$_SESSION['logedin'] = '';
+	$_SESSION['LOGGEDIN_MEMBER_ID'] = '';
+	$_SESSION['LOGGEDIN_MEMBER_TYPE'] = '';
+}
+
+if ( $_SESSION['LOGGEDIN_MEMBER_ID'] > 0 )
+	echo "<script>window.location.href='myeventwall.php';</script>";
+
+include_once('includes/header.php'); 
+
+if (isset($_POST['username'])){
+	
+	$errors = "";
+	$user = $_POST['username'];
+	$pass = $_POST['password'];
+	
+	$userChk_q = "select id, username, password, usertype from users where username = '$user' and password = '$pass'";
+	$userChk_q2 = "select id, username, password, usertype from users where username = '$user' and password = '$pass'";
+	$user_res = mysql_query($userChk_q);
+	$user_res2 = mysql_query($userChk_q2);
+	if($user_r1 = mysql_fetch_assoc($user_res)){
+			
+			mysql_query("delete from `tickets_cart` where `user_id`='".$user_r1['id']."'");
+			$_SESSION['logedin'] = '1';
+			$_SESSION['LOGGEDIN_MEMBER_ID'] = $user_r1['id'];
+			$_SESSION['usertype'] = $user_r1['usertype'];
+			
+			if ( $user_r1['usertype'] == '1' ){
+				// $wall_pg = 'myeventwall.php';
+				$wall_pg = $_SESSION['REFERER'];
+				}
+			else{
+				// $wall_pg = 'manage_event.php';
+				$wall_pg = $_SESSION['REFERER'];
+				}
+			
+			if ( $_SESSION['REDIRECT_URL'] != '' )
+				echo "<script>window.location.href='". urldecode($_SESSION['REDIRECT_URL']) ."';</script>";
+			else	
+				echo "<script>window.location.href='". $wall_pg ."';</script>";
+
+			
+	}elseif($user_r2 = mysql_fetch_assoc($user_res2)){
+		$errors = "Your Account is not Active";
+	}else{
+		
+		$errors = "Invalid username or password";		
+	}
+	if ( count( $errors) > 0 ) {
+		
+			$err = '<table border="0" width="90%"><tr><td class="error" ><ul>';
+			//for ($i=0;$i<count($errors); $i++) {
+				$err .= '<li>' . $errors . '</li>';
+			//}
+			$err .= '</ul></td></tr></table>';	
+	}
+	
+}
+
+
+?>
+<style>
+
+	.addEInput
+	{
+		width:225px!important;
+		height:30px!important;
+	}
+	
+	
+
+</style>
+
+<div id="main">
+<div id="login-main">
+				
+					<div id="login-main-top"></div>
+						<div id="login-main-middle">
+							<div id="login-head">
+								<div id="heading">Member Login</div>
+								<div id="already-member">
+									Not a Member? <span><a href="signup.php"> Sign Up </a></span>
+								</div>
+							</div><!--login-head -->
+							<div id="shadow"></div>
+							<div class="error"><?php echo $err; ?></div>
+							<div id="fb-root"></div>
+							<div class="fb-connect">
+							
+    						<script>
+								 FB.init({appId: '<?= FACEBOOK_APP_ID2 ?>', status: true,
+										   cookie: true, xfbml: true
+								   }); 
+								  FB.Event.subscribe('auth.login', function(response) {
+								   login();
+									//window.location.reload();
+								  });
+								  FB.Event.subscribe('auth.logout', function(response) {
+							       // do something with response
+									logout();
+								 	//window.location.reload();
+								  }); 
+								  function logout(){
+									document.location.href = "<?php echo ABSOLUTE_PATH;?>logout.php";
+								  }
+								  function login(){
+									document.location.href = "<?php echo ABSOLUTE_PATH;?>myeventwall.php";
+								  }
+							</script> 
+						 
+						 
+	 			<fb:login-button autologoutlink="true"  width="100" background="white" length="short" label="Logout" perms="email,user_birthday"></fb:login-button>	
+	             <!-- <fb:login-button autologoutlink="true"  width="100" background="white" length="short" label="Logout" perms="email,user_birthday">
+	 				<span>Facebook</span><span>&nbsp;</span><span>Logout</span><span class="fbr" style="margin-top: -12px !important;"></span>
+	 			</fb:login-button> 
+	  					
+				<fb:login-button autologoutlink="true"  width="100" background="white" length="short" label="Logout" perms="email,user_birthday">
+					<span>Connect</span><span style="font-weight:normal !important"> With </span><span>Facebook</span><span class="fbr"></span>
+    			</fb:login-button> -->
+		 
+						
+							
+													
+							</div>				
+							
+							<form action="login.php" method="post" name="loginform" id="loginform">
+								<!-- <input type="hidden" value="<?php //echo $ref;?>" name="ref" id="ref"> -->
+								<div id="form">
+									<div class="input-row">
+										<div class="input-label">Username</div>
+										<div class="input-field"><input type="text" name="username" id="username" class="required" maxlength="40"/></div>					
+									</div><!-- input-row -->
+									<div class="input-row">
+										<div class="input-label">Password</div>
+										<div class="input-field"><input type="password" name="password" id="password" class="required" maxlength="20"/></div>
+									</div><!-- input-row -->
+									<div class="input-row">
+										<div class="forgot-passwd"><span><a href="forgot_password.php">Forgot Password?</a></span></div>								<div style="font-weight:bold; color:#FF0000;"></div>
+									</div><!-- input-row -->
+									<div class="form-submit">
+										<input type="hidden" name="action_new" value="Login" />
+										<div class="submit-btn">
+											<input name="continue1" id="continue1" type="image" src="images/login-button.png" vspace="5" onclick="return getLogin();"/>
+										</div>
+									</div>
+										
+								</div><!-- form -->
+								</form>
+							</div><!-- login-main-middle-->
+					<div id="login-main-bottom"></div>	
+				
+			</div><!-- login-main -->
+</div>	
+<div class="clr"></div>
+<?php 
+/*if(isset($_SESSION['logedin']) && $_SESSION['usertype'] != ''){
+	header ("Location: view_events.php");
+}*/
+?>
+<?php include_once('includes/footer.php'); ?>		

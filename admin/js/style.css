@@ -1,0 +1,249 @@
+/* CSS Document */
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	overflow:scroll;
+	margin: 0px;
+	padding: 0px;
+}
+td  { text-align:left}
+
+.LeftMenu {
+	list-style-type: none;
+	padding: 0px;
+}
+.LeftMenu li a {
+	padding: 6px 0px;
+	display: block;
+	padding-left: 10px;
+	color: #333;
+	text-decoration: none;
+	background: url(../images/menudivider.gif) left bottom repeat-x;
+}
+.LeftMenu li a:hover {
+	color: #C00;
+	padding: 6px 0px;
+	padding-left: 10px;
+	background-color: #EFEFEF;
+}
+.LeftMenu li a.selected {
+	color: #C00;
+	background-color: #EFEFEF;
+}
+.bc_input
+
+{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px; 
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#333333;
+	padding:2px;
+
+}
+
+.bc_label
+
+{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:11px;
+
+	color:#666666;
+
+	padding:5px;
+
+	width:200px;
+
+	text-decoration:none;
+
+}
+
+
+
+.bc_heading {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	background-color:#777777;
+	color:#FFFFFF;
+	font-weight:bold;
+	text-align:center;
+}
+.bc_heading td{ padding: 5px 10px; }
+
+.bc_input_td
+
+{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:11px;
+
+	color:#666666;
+
+	padding:5px;
+
+}
+
+
+
+
+.success
+
+{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:11px;
+
+	color:#D10000;
+
+	padding:5px;
+
+
+
+}
+
+.tech_not
+
+{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+	font-size:9px;
+
+	color:#FF0000;
+
+}
+
+input, select, textarea {
+	font-size:11px; 
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#333333;
+	padding:2px;
+	width:150px;
+}
+
+.bc_button {
+	background-color:#EBEBEB; 
+	color:#333333; 
+	font-weight:bold;
+	border:#999999 solid 1px;
+	padding:5px 10px 5px 10px;
+}
+
+
+/* table sorter */
+#tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+#tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+#tablesorter thead tr .header {
+	background-image: url(images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+#tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	vertical-align: top;
+}
+#tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+#tablesorter thead tr .headerSortUp {
+	background-image: url(images/asc.gif);
+}
+#tablesorter thead tr .headerSortDown {
+	background-image: url(images/desc.gif);
+}
+#tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+.orders_table
+{
+/*	border:#EEEEEE solid 1px;*/
+}
+
+.orders_heading
+{
+	border-bottom:#CCCCCC solid 1px;
+	background-color:#EEEEEE;
+	font-weight:bold;
+	padding:5px;
+}
+
+.orders
+{
+	padding:1px;
+}
+
+.highlight{
+	background-color:#FBFBFB;
+}
+
+.tr_default{
+	background-color:#FFFFFF;
+}
+
+.hor_menu
+{
+	background-color:#EEEEEE;
+	padding-left:10px;
+	padding-top:5px;
+	/*border-bottom:#333333 solid 2px;*/
+	background-image:url(images/hor_menu_bg.gif);
+	height:22px;
+}
+.newRec {height:22px; text-align:left;margin:0px 40px 0px 40px;}
+.newRec a{border: 1px solid #aaa;padding:5px;text-decoration:none;font-weight:bold;color:#126687;background-color:#f7f7f7;}
+.newRec a:hover{background-color:#fff;border:1px solid #126687;}
+
+.level1
+
+{
+	color:#666666;
+	font-weight:bold;
+}
+
+.level2
+
+{
+	color:#666666;
+	font-weight:normal;
+	padding-left:20px!important;
+}
+
+.item_list_table tr
+{
+	background-color:#FFFFFF;
+}
+.item_list_table tr:hover
+{
+	background-color:#EEEEEE;
+}
+.actionMenu {
+	text-align:center;
+}
+.actionMenu a {
+	color: #333;
+	text-decoration: none;
+	font: normal 10px Verdana, Helvetica, sans-serif;
+}
+.actionMenu a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}

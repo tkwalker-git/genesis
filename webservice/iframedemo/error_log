@@ -1,0 +1,6 @@
+
+[29-Dec-2012 06:02:12] PHP Parse error:  syntax error, unexpected T_ECHO in /home3/eventgra/public_html/pangea/webservice/iframedemo/getuserresponce.php on line 35
+[29-Dec-2012 06:06:17] PHP Parse error:  syntax error, unexpected T_ECHO in /home3/eventgra/public_html/pangea/webservice/iframedemo/getuserresponce.php on line 33
+[29-Dec-2012 06:14:19] PHP Parse error:  syntax error, unexpected T_ECHO in /home3/eventgra/public_html/pangea/webservice/iframedemo/getuserresponce.php on line 34
+[29-Dec-2012 06:15:51] PHP Fatal error:  Call to undefined function  alert() in /home3/eventgra/public_html/pangea/webservice/iframedemo/getuserresponce.php on line 20
+[29-Dec-2012 07:22:59] PHP Catchable fatal error:  Object of class SoapClient could not be converted to string in /home3/eventgra/public_html/pangea/webservice/iframedemo/getuserresponce.php on line 42

@@ -1,0 +1,56 @@
+{BEGIN mainmenu_block}
+{BEGIN mainmenustyle_block}
+<style class="Vmenu">
+#mainmenu_block IMG, #mainmenu_block HR
+{
+	vertical-align:middle;
+		{BEGIN RTL_block}
+	margin-left:10px;
+	{END RTL_block}
+	{BEGIN LTR_block}
+	margin-right:10px;
+	{END LTR_block}
+}
+#menu_block{$id}, #tables_block{{BEGIN RTL_block}text-align:right;{END RTL_block}} 
+/* For Vmenu1 on the list page */
+#mainmenu_block {width:200px;}
+#menu_block{$id}, #tables_block{padding:10px 0;} 
+{BEGIN RTL_block}
+.Vmenu1 {text-align:right;}
+{END RTL_block}
+.Vmenu1 ul, .Vmenu1 ul li{list-style:none;margin:0;padding:0px;}
+.Vmenu1 ul li {padding:5px 10px;z-index:1;display:block;width:auto;}
+.Vmenu1 ul li ul{display:none;position:absolute;top:0px;z-index:2;}
+.Vmenu1 ul li ul li{white-space:nowrap;}
+</style>
+{END mainmenustyle_block}
+<div id="mainmenu_block" class="Vmenu1">
+
+<ul>
+	{BEGIN item1_menulink}
+	<li id="li1" view="topitem" >
+	
+{BEGIN needcurrent_item}
+<a {$item1_menulink_attrs} class='{BEGIN item1_current}highlight-tablesearch current{END item1_current}{BEGIN item1_notcurrent}tablelinkssearch{END item1_notcurrent}'  ><img alt="*" src='include/img/arrow_menuL6_{BEGIN item1_current}1{END item1_current}{BEGIN item1_notcurrent}2{END item1_notcurrent}.gif' border=0>{$item1_title}</a>
+{END needcurrent_item}
+{BEGIN notneedcurrent_item}
+<a {$item1_menulink_attrs} class="tablelinks"  ><img alt="*" src="include/img/arrow_menuL6_2.gif" border=0>{$item1_title}</a>
+{END notneedcurrent_item}
+
+	</li>
+	{END item1_menulink}
+	{BEGIN item2_menulink}
+	<li id="li2" view="topitem" >
+	
+{BEGIN needcurrent_item}
+<a {$item2_menulink_attrs} class='{BEGIN item2_current}highlight-tablesearch current{END item2_current}{BEGIN item2_notcurrent}tablelinkssearch{END item2_notcurrent}'  ><img alt="*" src='include/img/arrow_menuL6_{BEGIN item2_current}1{END item2_current}{BEGIN item2_notcurrent}2{END item2_notcurrent}.gif' border=0>{$item2_title}</a>
+{END needcurrent_item}
+{BEGIN notneedcurrent_item}
+<a {$item2_menulink_attrs} class="tablelinks"  ><img alt="*" src="include/img/arrow_menuL6_2.gif" border=0>{$item2_title}</a>
+{END notneedcurrent_item}
+
+	</li>
+	{END item2_menulink}
+</ul>
+</div>
+{END mainmenu_block}

@@ -1,0 +1,69 @@
+<?php
+	
+	require_once('../admin/database.php');
+	require_once('../site_functions.php');
+	
+	$event_id	=	$_GET['id'];
+	$event_image	=	getSingleColumn('event_image',"select * from `events` where `id`='$event_id'");
+	
+	?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="<?php echo ABSOLUTE_PATH; ?>js/jquery-1.2.6.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo ABSOLUTE_PATH; ?>js/jquery.flip.min.js"></script>
+<script type="text/javascript" src="<?php echo ABSOLUTE_PATH; ?>js/script.js"></script>
+<script type="text/javascript" src="<?php echo ABSOLUTE_PATH; ?>js/common_bc.js"></script>
+<style>
+.sponsor{
+		width:520px;
+}
+.sponsorFlip{
+		left:0;
+		top:0;
+		width:520px;
+}
+.sponsorData{
+		display:none;
+}
+
+body{
+	padding:0 !important;
+	margin:0 !important;
+	width:520px !important;
+	min-width:520px !important;
+	}
+</style>
+
+<link href="<?php echo ABSOLUTE_PATH; ?>style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="page-bg" class="translucent"></div>
+<div class="subscribe-overlayer" id="overlayer" align="center"></div>
+<div style="position:relative; width:520px;">
+  <div class="sponsor" id="spons">
+    <div class="sponsorFlip">
+      <div class="flayerTopFB">
+        <div class="flayerBottomFB">
+          <div class="flayerMiddleFB">
+            <div class="flayer" id="flayer" align="center">
+			  <?php
+			echo	getFlayerImage($event_image,'','','486');
+			  ?>
+            </div>
+          </div>
+        </div>
+        <div class="clipImage" id="clickhere"><img src="<?php echo IMAGE_PATH; ?>click_here.png" alt="" title="Click to flip" /></div>
+      </div>
+    </div>
+    <div class="sponsorData">
+      <?php include("details.php"); ?>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

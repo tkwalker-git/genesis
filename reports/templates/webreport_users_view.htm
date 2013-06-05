@@ -1,0 +1,67 @@
+<html {$html_attrs}>
+<head><title>Webreport Users</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+<style>
+#height100{$id} {padding:10px;} 
+#center_block{$id} {width:55%;margin:0 auto;min-width: 500px;}
+#contents_block{$id} {text-align:center;}
+#header_block{$id} {white-space:nowrap;height:31px;padding:5px;text-align:center;}
+#fields_block{$id} {width:100%}
+#buttons_block{$id} {padding:5px;white-space:nowrap;text-align:center;}
+#required_block{$id} {text-align:left;padding:5px}
+a.pdf{float:left;}
+</style>
+</head>
+<body>
+{BEGIN body}
+{$header}
+<div id="height100{$id}" align="center">
+
+<table cellpadding=0 cellspacing=0 class="main_table2" border=0 align=center width=400><tr><td id="contents_block">
+
+<div id="header_block{$id}" class="upeditmenu">
+Webreport Users, View record [
+Id: {$show_key1}
+]
+</div>
+
+<table cellpadding=4 cellspacing=0 border=0 id="fields_block{$id}">
+{BEGIN username_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:20px;"><b>Username</b></td>
+  <td width=250 class=editshade_lb style="padding-left:10px;">
+    {$username_value}&nbsp;
+  </td></tr>
+{END username_fieldblock}
+{BEGIN password_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:20px;"><b>Password</b></td>
+  <td width=250 class=editshade_lb style="padding-left:10px;">
+    {$password_value}&nbsp;
+  </td></tr>
+{END password_fieldblock}
+{BEGIN email_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:20px;"><b>Email</b></td>
+  <td width=250 class=editshade_lb style="padding-left:10px;">
+    {$email_value}&nbsp;
+  </td></tr>
+{END email_fieldblock}
+</table>
+
+<div class="toplist" id="buttons_block{$id}">
+{BEGIN back_button}
+ <span class=buttonborder><input class=button type=reset value="Back to list" onclick="window.location.href='webreport_users_list.php?a=return'" {$backbutton_attrs}></span>
+{END back_button}
+</div>
+
+</td></tr></table>
+</div>
+
+{BEGIN detail_tables}
+{END detail_tables}
+<br><br>
+{$footer}
+{END body}
+</body>
+</html>

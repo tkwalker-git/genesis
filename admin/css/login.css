@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	overflow: scroll;
+	padding: 0px; margin: 0px;
+	background:url("../images/login_bg.gif") top left repeat-x;
+}
+form {
+	margin: 0px;
+	padding: 0px;
+}
+#tbl {
+	margin-top: 30px;
+	background-color:#FFFFFF;
+	border: 1px solid #666;
+	width: 80%;
+}
+#logo {
+	width: 90%;
+	text-align: center;
+	margin: 20px auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #EEE;
+}
+#login {
+	color: #124B67;
+	text-align:center;
+	font: bold 24px/50px Arial, Helvetica, sans-serif;
+}
+#box {
+	margin: 0 auto;
+	width: 350px;
+	padding: 20px;
+	border: 14px solid #CCC;
+	background-color: #EEE;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+}
+#box label {
+	color: #555;
+	display: block;
+	line-height: 20px;
+}
+#box .input {
+	border: 1px solid #999;
+	width: 340px;
+	padding: 3px;
+}
+#box .hr {
+	color:#006600;
+	height: 1px;
+	margin-top: 30px;
+	background-color:#CCCCCC;
+}
+#box .btn {
+	margin: 20px 20px 0px 20px;
+}
+#box .btn .btn_l {
+	float: left;
+	with: 50%;
+	padding-top: 6px;
+}
+#box .btn .btn_r {
+	text-align: right
+}
+#box .btn a {
+	font-weight: normal;
+	color: #000033;
+}
+#box .btn a:hover {
+	text-decoration: none;
+}
+#box .error {
+	text-align:center;
+	color:#FF0000;
+}
+#info {
+	margin: 0 auto;
+	width: 418px;
+	padding: 20px 0px;
+}
+#info .info_img {
+	float: left;
+	width: 34px;
+	height: 40px;
+}
+#info .info_txt {
+	text-align:justify;
+	font: normal 12px Arial, Helvetica, sans-serif;
+}
+#footer {
+	text-align: center;
+	padding: 20px 0px;
+	color: #FFFFFF;
+	background: #21180F;
+	font: normal 12px Arial, Helvetica, sans-serif;
+}
+#footer a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+#footer a.powered {
+	color: #FFFFCC;
+	font-weight: bold;
+}

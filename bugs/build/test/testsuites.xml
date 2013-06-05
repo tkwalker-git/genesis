@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="AllTests" tests="113" assertions="332" failures="0" errors="0" time="62.948242">
+    <testsuite name="AttachmentTest" file="/var/www/mantisbt/tests/soap/AttachmentTest.php" tests="4" assertions="5" failures="0" errors="0" time="1.964203">
+      <testcase name="testAttachmentIsAdded" class="AttachmentTest" file="/var/www/mantisbt/tests/soap/AttachmentTest.php" line="42" assertions="4" time="1.137420"/>
+      <testcase name="testIssueAttachmentNotFound" class="AttachmentTest" file="/var/www/mantisbt/tests/soap/AttachmentTest.php" line="86" assertions="1" time="0.289221"/>
+      <testcase name="testProjectAttachmentIsAdded" class="AttachmentTest" file="/var/www/mantisbt/tests/soap/AttachmentTest.php" line="107" assertions="0" time="0.293032"/>
+      <testcase name="testProjectAttachmentNotFound" class="AttachmentTest" file="/var/www/mantisbt/tests/soap/AttachmentTest.php" line="145" assertions="0" time="0.244530"/>
+    </testsuite>
+    <testsuite name="CategoryTest" file="/var/www/mantisbt/tests/soap/CategoryTest.php" tests="1" assertions="4" failures="0" errors="0" time="1.281073">
+      <testcase name="testAddRenameDeleteCategory" class="CategoryTest" file="/var/www/mantisbt/tests/soap/CategoryTest.php" line="45" assertions="4" time="1.281073"/>
+    </testsuite>
+    <testsuite name="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" tests="5" assertions="9" failures="0" errors="0" time="5.511976">
+      <testcase name="testCreateIssueHasEmptyMonitorList" class="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" line="35" assertions="1" time="0.886017"/>
+      <testcase name="testAddMonitorWhenCreatingAnIssue" class="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" line="64" assertions="3" time="0.719783"/>
+      <testcase name="testAddMonitorToExistingIssue" class="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" line="99" assertions="3" time="1.246421"/>
+      <testcase name="testRemoveMonitor" class="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" line="139" assertions="1" time="1.278543"/>
+      <testcase name="testUpdateKeepsMonitor" class="IssueMonitorTest" file="/var/www/mantisbt/tests/soap/IssueMonitorTest.php" line="175" assertions="1" time="1.381212"/>
+    </testsuite>
+    <testsuite name="IssueNoteTest" file="/var/www/mantisbt/tests/soap/IssueNoteTest.php" tests="4" assertions="13" failures="0" errors="0" time="4.455210">
+      <testcase name="testAddNote" class="IssueNoteTest" file="/var/www/mantisbt/tests/soap/IssueNoteTest.php" line="42" assertions="9" time="1.123172"/>
+      <testcase name="testAddNoteWithTimeTracking" class="IssueNoteTest" file="/var/www/mantisbt/tests/soap/IssueNoteTest.php" line="105" assertions="0" time="0.388212"/>
+      <testcase name="testAddThenUpdateThenDeleteNote" class="IssueNoteTest" file="/var/www/mantisbt/tests/soap/IssueNoteTest.php" line="158" assertions="4" time="2.119427"/>
+      <testcase name="testAddNoteWithNoText" class="IssueNoteTest" file="/var/www/mantisbt/tests/soap/IssueNoteTest.php" line="229" assertions="0" time="0.824399"/>
+    </testsuite>
+    <testsuite name="CompressionTest" file="/var/www/mantisbt/tests/soap/CompressionTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.863866">
+      <testcase name="testGetIssueWithCompressionEnabled" class="CompressionTest" file="/var/www/mantisbt/tests/soap/CompressionTest.php" line="42" assertions="0" time="0.863866"/>
+    </testsuite>
+    <testsuite name="ProjectTest" file="/var/www/mantisbt/tests/soap/ProjectTest.php" tests="3" assertions="4" failures="0" errors="0" time="2.606690">
+      <testcase name="testAddRenameDeleteProject" class="ProjectTest" file="/var/www/mantisbt/tests/soap/ProjectTest.php" line="38" assertions="2" time="1.341073"/>
+      <testcase name="testGetIdFromName" class="ProjectTest" file="/var/www/mantisbt/tests/soap/ProjectTest.php" line="87" assertions="1" time="0.611634"/>
+      <testcase name="testGetSubprojects" class="ProjectTest" file="/var/www/mantisbt/tests/soap/ProjectTest.php" line="115" assertions="1" time="0.653983"/>
+    </testsuite>
+    <testsuite name="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" tests="9" assertions="16" failures="0" errors="0" time="10.023385">
+      <testcase name="testGetProjectIssues" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="41" assertions="2" time="0.885532"/>
+      <testcase name="testGetProjectIssueHeaders" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="68" assertions="2" time="0.970464"/>
+      <testcase name="testGetProjectIssueHeadersCountNotes" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="96" assertions="1" time="1.776200"/>
+      <testcase name="testGetProjectClosedIssues" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="141" assertions="1" time="0.837464"/>
+      <testcase name="testGetProjectIssuesWithoutCategory" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="170" assertions="0" time="0.245479"/>
+      <testcase name="testGetIssueHeadersPaged" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="192" assertions="3" time="1.704461"/>
+      <testcase name="testGetIssuesPaged" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="233" assertions="3" time="1.885417"/>
+      <testcase name="testGetAllProjectsIssues" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="238" assertions="2" time="0.934146"/>
+      <testcase name="testGetAllProjectsIssueHeaders" class="FilterTest" file="/var/www/mantisbt/tests/soap/FilterTest.php" line="257" assertions="2" time="0.784222"/>
+    </testsuite>
+    <testsuite name="UserTest" file="/var/www/mantisbt/tests/soap/UserTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.325557">
+      <testcase name="testGetPreference" class="UserTest" file="/var/www/mantisbt/tests/soap/UserTest.php" line="34" assertions="1" time="0.325557"/>
+    </testsuite>
+    <testsuite name="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" tests="10" assertions="14" failures="0" errors="0" time="2.785480">
+      <testcase name="testLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="34" assertions="1" time="0.342923"/>
+      <testcase name="testLoginSuccessfully" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="43" assertions="5" time="0.274302"/>
+      <testcase name="testGetIssueGetLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="53" assertions="1" time="0.243285"/>
+      <testcase name="testProjectGetUsersLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="62" assertions="1" time="0.261830"/>
+      <testcase name="testGetEnumStatusLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="71" assertions="1" time="0.317557"/>
+      <testcase name="testProjectGetIssuesLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="80" assertions="1" time="0.269319"/>
+      <testcase name="testFilterGetIssuesLoginFailed" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="89" assertions="1" time="0.310583"/>
+      <testcase name="testLoginWithNullPasswordIsRejected" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="98" assertions="1" time="0.263215"/>
+      <testcase name="testLoginWithEmptyPasswordIsRejected" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="107" assertions="1" time="0.249589"/>
+      <testcase name="testLoginWithIncorrectPasswordIsRejected" class="LoginTest" file="/var/www/mantisbt/tests/soap/LoginTest.php" line="116" assertions="1" time="0.252877"/>
+    </testsuite>
+    <testsuite name="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" tests="14" assertions="48" failures="0" errors="0" time="10.249148">
+      <testcase name="testCreateIssue" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="37" assertions="27" time="1.223797"/>
+      <testcase name="testCreateIssueWithHtmlMarkup" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="107" assertions="2" time="0.609735"/>
+      <testcase name="testCreateIssueWithRareFields" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="140" assertions="7" time="0.696718"/>
+      <testcase name="testCreateIssueWithHandler" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="181" assertions="2" time="0.825675"/>
+      <testcase name="testCreateIssueWithDueDate" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="215" assertions="0" time="0.275232"/>
+      <testcase name="testCreateIssueWithNullDueDate" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="252" assertions="2" time="0.677983"/>
+      <testcase name="testCreateBugWithNoCategory" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="279" assertions="0" time="0.360733"/>
+      <testcase name="testCreateIssueWithTimeTrackingNote" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="327" assertions="0" time="0.276022"/>
+      <testcase name="testCreateIssueWithHandlerByName" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="369" assertions="1" time="0.687435"/>
+      <testcase name="testCreateIssueWithFaultyVersionGeneratesError" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="394" assertions="1" time="0.374529"/>
+      <testcase name="testCreateIssueWithVersion" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="414" assertions="1" time="0.956129"/>
+      <testcase name="testGetBiggestId" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="443" assertions="1" time="1.276369"/>
+      <testcase name="testCreateIssueWithMiscNote" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="464" assertions="3" time="0.703501"/>
+      <testcase name="testCreateIssueWithTags" class="IssueAddTest" file="/var/www/mantisbt/tests/soap/IssueAddTest.php" line="496" assertions="1" time="1.305290"/>
+    </testsuite>
+    <testsuite name="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" tests="17" assertions="70" failures="0" errors="0" time="5.000922">
+      <testcase name="testAccessLevel" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="33" assertions="7" time="0.414709"/>
+      <testcase name="testAccessLevelAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="54" assertions="1" time="0.270712"/>
+      <testcase name="testStatus" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="61" assertions="8" time="0.275571"/>
+      <testcase name="testStatusAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="83" assertions="1" time="0.308176"/>
+      <testcase name="testPriority" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="90" assertions="7" time="0.262923"/>
+      <testcase name="testPriorityAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="111" assertions="1" time="0.333856"/>
+      <testcase name="testReproducibility" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="118" assertions="7" time="0.304589"/>
+      <testcase name="testReproducibilityAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="139" assertions="1" time="0.288590"/>
+      <testcase name="testSeverity" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="146" assertions="9" time="0.262678"/>
+      <testcase name="testSeverityAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="169" assertions="1" time="0.253196"/>
+      <testcase name="testProjection" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="176" assertions="6" time="0.278498"/>
+      <testcase name="testProjectionAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="196" assertions="1" time="0.278032"/>
+      <testcase name="testEta" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="203" assertions="7" time="0.317097"/>
+      <testcase name="testEtaAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="224" assertions="1" time="0.270545"/>
+      <testcase name="testResolution" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="231" assertions="10" time="0.321855"/>
+      <testcase name="testResolutionAccessDenied" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="255" assertions="1" time="0.278108"/>
+      <testcase name="testEnumGet" class="EnumTest" file="/var/www/mantisbt/tests/soap/EnumTest.php" line="281" assertions="1" time="0.281787"/>
+    </testsuite>
+    <testsuite name="RelationshipTest" file="/var/www/mantisbt/tests/soap/RelationshipTest.php" tests="2" assertions="8" failures="0" errors="0" time="3.335052">
+      <testcase name="testCreateIssuesAndAddRelation" class="RelationshipTest" file="/var/www/mantisbt/tests/soap/RelationshipTest.php" line="34" assertions="6" time="1.637209"/>
+      <testcase name="testDeleteRelation" class="RelationshipTest" file="/var/www/mantisbt/tests/soap/RelationshipTest.php" line="75" assertions="2" time="1.697843"/>
+    </testsuite>
+    <testsuite name="VersionTest" file="/var/www/mantisbt/tests/soap/VersionTest.php" tests="2" assertions="11" failures="0" errors="0" time="1.733816">
+      <testcase name="testAddVersion" class="VersionTest" file="/var/www/mantisbt/tests/soap/VersionTest.php" line="46" assertions="8" time="0.776358"/>
+      <testcase name="testUpdateVersion" class="VersionTest" file="/var/www/mantisbt/tests/soap/VersionTest.php" line="74" assertions="3" time="0.957458"/>
+    </testsuite>
+    <testsuite name="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" tests="6" assertions="12" failures="0" errors="0" time="3.703848">
+      <testcase name="testTagOperations" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="34" assertions="8" time="1.004283"/>
+      <testcase name="testCreateTagWithInvalidName" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="78" assertions="1" time="0.269936"/>
+      <testcase name="testDeleteNonExistantTag" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="96" assertions="1" time="0.243111"/>
+      <testcase name="testCreateTagWithNoDescription" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="109" assertions="0" time="0.491651"/>
+      <testcase name="testCreateTagWithExistingName" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="123" assertions="1" time="0.602150"/>
+      <testcase name="testSetTagsOnIssue" class="TagTest" file="/var/www/mantisbt/tests/soap/TagTest.php" line="142" assertions="1" time="1.092717"/>
+    </testsuite>
+    <testsuite name="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" tests="9" assertions="59" failures="0" errors="0" time="9.088244">
+      <testcase name="testUpdateSummaryBasedOnPreviousGet" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="37" assertions="23" time="1.006837"/>
+      <testcase name="testUpdateSummaryBasedOnMandatoryFields" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="104" assertions="24" time="0.820675"/>
+      <testcase name="testUpdateWithNewNote" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="167" assertions="6" time="1.944906"/>
+      <testcase name="testUpdateIssueWithHandler" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="245" assertions="2" time="1.193712"/>
+      <testcase name="testUpdateIssueDueDate" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="292" assertions="0" time="0.261677"/>
+      <testcase name="testUpdateBugWithNoCategory" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="335" assertions="0" time="0.303181"/>
+      <testcase name="testUpdateWithTimeTrackingNote" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="375" assertions="0" time="0.326199"/>
+      <testcase name="testUpdateWithRareFields" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="424" assertions="0" time="0.272449"/>
+      <testcase name="testUpdateWithTagOperations" class="IssueUpdateTest" file="/var/www/mantisbt/tests/soap/IssueUpdateTest.php" line="464" assertions="4" time="2.958608"/>
+    </testsuite>
+    <testsuite name="Mantis_StringTest" file="/var/www/mantisbt/tests/Mantis/StringTest.php" fullPackage="Tests.String" package="Tests" subpackage="String" tests="13" assertions="13" failures="0" errors="0" time="0.006399">
+      <testsuite name="Mantis_StringTest::testStringSanitize" tests="13" assertions="13" failures="0" errors="0" time="0.006399">
+        <testcase name="testStringSanitize with data set #0" assertions="1" time="0.000626"/>
+        <testcase name="testStringSanitize with data set #1" assertions="1" time="0.000578"/>
+        <testcase name="testStringSanitize with data set #2" assertions="1" time="0.000466"/>
+        <testcase name="testStringSanitize with data set #3" assertions="1" time="0.000495"/>
+        <testcase name="testStringSanitize with data set #4" assertions="1" time="0.000474"/>
+        <testcase name="testStringSanitize with data set #5" assertions="1" time="0.000458"/>
+        <testcase name="testStringSanitize with data set #6" assertions="1" time="0.000438"/>
+        <testcase name="testStringSanitize with data set #7" assertions="1" time="0.000571"/>
+        <testcase name="testStringSanitize with data set #8" assertions="1" time="0.000450"/>
+        <testcase name="testStringSanitize with data set #9" assertions="1" time="0.000441"/>
+        <testcase name="testStringSanitize with data set #10" assertions="1" time="0.000451"/>
+        <testcase name="testStringSanitize with data set #11" assertions="1" time="0.000481"/>
+        <testcase name="testStringSanitize with data set #12" assertions="1" time="0.000470"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" tests="12" assertions="45" failures="0" errors="0" time="0.013375">
+      <testcase name="testGetLabel" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="42" assertions="9" time="0.000748"/>
+      <testcase name="testGetLocalizedLabel" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="57" assertions="3" time="0.000519"/>
+      <testcase name="testGetValues" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="72" assertions="2" time="0.003504"/>
+      <testcase name="testGetAssocArrayIndexedByValues" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="80" assertions="5" time="0.002311"/>
+      <testcase name="testGetAssocArrayIndexedByLabels" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="91" assertions="5" time="0.000848"/>
+      <testcase name="testGetValue" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="102" assertions="5" time="0.000565"/>
+      <testcase name="testHasValue" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="116" assertions="3" time="0.001964"/>
+      <testcase name="testDuplicateValuesEnum" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="125" assertions="2" time="0.000587"/>
+      <testcase name="testDuplicateLabelsValuesEnum" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="133" assertions="3" time="0.000703"/>
+      <testcase name="testSingleValueEnum" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="142" assertions="2" time="0.000520"/>
+      <testcase name="testNameWithSpacesEnum" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="150" assertions="3" time="0.000601"/>
+      <testcase name="testNonTrimmedEnum" class="MantisEnumTest" file="/var/www/mantisbt/tests/Mantis/EnumTest.php" line="159" assertions="3" time="0.000505"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,113 @@
+/* CSS Document */
+
+	
+ul, li{
+	margin:0;
+	padding:0;
+	list-style:none
+	}
+	
+.dashbdTabs{
+	float:right;
+	margin-bottom:-6px;
+	overflow:hidden;
+	}
+
+.dashbdTabs li{
+	float:left;
+	background:url(images/db_splitr.png) no-repeat right center;
+	padding:0 2px;
+	}
+	
+.dashbdTabs li:last-child{
+	background:none;
+	}	
+	
+.dashbdTabs li a{
+	float: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 9px;
+	}
+	
+.dashbdTabs li a:hover, .dashbdTabs li .active{
+	text-decoration:none;
+	background:#dedede;
+	color:#308551;
+	behavior:url(border-radius.htc);
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	-khtml-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	}
+
+.db_box{
+	border:solid 1px #cbcbcb;
+	width:445px;
+	float:left;
+	margin-bottom:13px;
+	}
+	
+.db_box .head{
+	font-size:18px;
+	background:#dedede;
+	padding:8px 12px;
+	border-bottom:solid 1px #cbcbcb;
+	}
+	
+.db_flt{
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 139px;
+	vertical-align: middle;
+	width: 50%;
+	float:left;
+	}
+	
+.db_box .active_event{
+	padding:28px 7px 24px 14px;
+	}
+	
+.db_showEvn{
+	background:url(images/evnt_box.png) no-repeat;
+	width:153px;
+	height:219px;
+	padding-top:11px;
+	float:left;
+	text-align: center;
+	}
+	
+.db_nameEvn, .db_dateEvn{
+	font-size: 11px;
+    font-weight: bold;
+	}
+
+.db_dateEvn{
+	color: #58b866;
+	}
+	
+.db_nameEvn a:hover{
+	text-decoration:none;
+	}
+	
+.db_detailEvn{
+	float: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 8px;
+    width: 263px;
+	padding-top: 7px;
+	}
+	
+.db_fl2{
+	color: #F0725B;
+    float: left;
+    padding-left: 7px;
+    text-align: right;
+    width: 100px;
+	}
+	
+.db_dtdRow{
+	border-bottom:#000 dotted 1px;
+	padding:6px 0;
+	}

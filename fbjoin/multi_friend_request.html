@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+  <head>
+    <title>Request Example</title>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <!--<p>
+      <input type="button" onClick="sendRequestToRecipients(); return false;" value="Send Request to Users Directly"  />
+      <input type="text" value="User ID" name="user_ids" />
+      </p>-->
+    <p>
+    <input type="button" onClick="sendRequestViaMultiFriendSelector(); return false;" value="Invite Friends" />
+    </p>
+    
+    <script>
+      FB.init({
+        appId  : '417488184934744',
+      });
+
+      function sendRequestToRecipients() {
+        var user_ids = document.getElementsByName("user_ids")[0].value;
+        FB.ui({method: 'apprequests',
+          message: 'My Great Request',
+          to: user_ids, 
+        }, requestCallback);
+      }
+
+      function sendRequestViaMultiFriendSelector() {
+        FB.ui({method: 'apprequests',
+          message: 'My Great Request'
+        }, requestCallback);
+      }
+      
+      function requestCallback(response) {
+        if (response.request && response.to && response.to.length > 0) {
+          var ids = response.to.join();
+		 // alert(ids);
+		 } 
+      }
+    </script>
+  </body>
+</html>

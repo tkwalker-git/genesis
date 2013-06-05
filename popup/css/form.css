@@ -1,0 +1,15 @@
+/*
+ * RSVP Form css stylesheet
+ * Author: info@websoftwar.es
+ */
+
+#rsvp_form{padding:0;}
+#rsvp_form input,#rsvp_form label, #rsvp h3 {font-family: Arial, Helvetica, sans-serif;}
+#rsvp_form .formfield {margin: 0 0 7px 0; clear:left;}
+#rsvp_form label {font-weight: bold;color: #333;letter-spacing: 0.05em;font-size: 13px;display: block;float: left;margin: 0 10px 0 0;padding: 0;text-align: right;width: 108px;line-height: 160%;}
+#rsvp_form input {font-size: 13px;border: 1px solid #B9BDC1;width: 172px;color: #333;margin: 0;}
+#rsvp_form .submit_btn {-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;box-shadow:inset 0px 1px 0px 0px #fff6af;background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23) );background:-moz-linear-gradient( center top, #ffec64 5%, #ffab23 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23');background-color:#ffec64;-moz-border-radius:6px;-webkit-border-radius:6px;border-radius:6px;border:1px solid #ffaa22;display:inline-block;color:#333333;font-family: Arial, Helvetica, sans-serif;font-size:13px;font-weight:bold;padding:1px 12px;text-decoration:none;text-shadow:1px 1px 0px #ffee66;width:auto;float:right;clear:right;margin:0 8px 0 0;}
+#rsvp_form .submit_btn:hover {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64) );background:-moz-linear-gradient( center top, #ffab23 5%, #ffec64 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64');background-color:#ffab23;}
+#rsvp_form .submit_btn:active {position:relative;top:1px;}
+#rsvp {margin: 0 auto;width: 300px;}
+#rsvp h3{ font-size:24px; line-height: 180%; font-weight:normal; color:#55B86E;}

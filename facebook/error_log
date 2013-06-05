@@ -1,0 +1,5 @@
+[19-May-2011 01:52:36] PHP Fatal error:  Uncaught Exception: 601: Parser error: SELECT * is not supported.  Please manually list the columns you are interested in.
+  thrown in /home3/eventgra/public_html/facebook/facebook.php on line 515
+[27-May-2011 06:01:27] PHP Fatal error:  Call to a member function api() on a non-object in /home3/eventgra/public_html/facebook/fb_login.php on line 41
+[27-May-2011 06:03:52] PHP Fatal error:  Uncaught Exception: 602: uid is not a member of the profile table.
+  thrown in /home3/eventgra/public_html/facebook/facebook.php on line 515

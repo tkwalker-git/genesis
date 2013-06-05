@@ -1,0 +1,909 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+    <head>
+        <title>{$reportTitle}</title>
+		
+        {BEGIN style_block}
+		<link rel="stylesheet" type="text/css" href="include/style.css">
+        <style>
+            .report-title		{font:bold 12px arial, verdana, sans serif, helvetica;}
+            table.report		{border-collapse: collapse; border: solid 2px #000;}
+				table.report td	{padding: 2px; border: solid 1px #ccc;}
+            .groupsummary		{border-bottom: solid 1px #000;}
+            td.pagesummary		{background: #ffffbb;}
+            td.globalsummary	{background: #ffe0b0;}
+			.page-summary		{border-top: 4px double #333;}
+			select.apply-style	{line-height: 1.4em; width: 90%;}
+			.buttonborder 		{margin-right: 10px;}
+			#wnd_header			{cursor: move;}
+            {BEGIN group_field_colors}
+            td.group_{$iteration},
+            td.nbgroup_{$iteration}		{background: #{$color1};}
+            td.header_{$iteration}		{background: #{$color2};}
+            {END group_field_colors}			
+            {$styleStr}
+        </style>
+		{$includes}
+        {END style_block}
+		
+		{BEGIN editor_style_block}
+		<link rel="stylesheet" href="include/css/jquery-ui.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="include/css/stylesheet.css" type="text/css" media="screen">
+		<!--[if IE]>
+		<link rel="stylesheet" href="include/css/stylesheetIE.css" type="text/css" media="screen">
+		<![endif]-->
+		
+		<script type="text/javascript" src="include/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="include/js/jquery.dimensions.pack.js"></script>
+		<script type="text/javascript" src="include/js/actionscript.js"></script>		
+		<script type="text/javascript" src="include/js/jquery.cookie.js"></script>
+		{END editor_style_block}
+		
+    </head>
+	
+    <body {$onload}>
+{$header}
+	{BEGIN top_menu_block}
+          <table>
+            <tr>
+                <td width="30">&nbsp;</td>
+                <td align="center">
+                    <span class="report-title">{$reportTitle}</span>
+                </td>
+                <td width="80%" align="center">
+                    <table align="center" border="0">
+                        <tr>
+                            <td width="10">&nbsp;</td>
+                            {BEGIN back_to_menu}
+                            <td align="center">
+                                <a href="webreport.{$ext}">Back to menu</a>
+                            </td>
+                            {END back_to_menu}
+                            <td width="20">&nbsp;</td>
+                            {BEGIN adv_search_block}
+                            <td align="center">
+                                <a href="{$search_type}.{$ext}?rname={$reportName}">Advanced search</a>
+                            </td>
+                            <td width="20">&nbsp;</td>
+                            {END adv_search_block}
+                            {BEGIN print_friendly_block}
+                            <td align=center>
+                                <a target="_blank" href="dreport.{$ext}?mode=print&rname={$reportName}">
+                                <img src="images/printer.gif" border=0></a>
+                            </td>
+                            <td align=center>
+                                <a target="_blank" href="dreport.{$ext}?mode=print&rname={$reportName}">Print this page</a>
+                            </td>
+                            <td width=20>&nbsp;</td>
+                            <td align=center>
+                                <a target="_blank" href="dreport.{$ext}?mode=print&rname={$reportName}&all=1">
+                                <img src="images/printer.gif" border=0></a>
+                            </td>
+                            <td align=center>
+                                <a target="_blank" href="dreport.{$ext}?mode=print&rname={$reportName}&all=1">Print whole report</a>
+                            </td>
+                            <td width=20>&nbsp;</td>
+                            <td align=center>
+                                <a href="dreport.php?mode=print&all=1&format=excel&rname={$reportName}"><img src="images/excel.gif" border="0"></a>
+                                <a href="dreport.php?mode=print&all=1&format=word&rname={$reportName}"><img src="images/word.gif" border="0"></a>
+                            </td>
+                            {END print_friendly_block}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+		{END top_menu_block}
+		
+		{BEGIN records_display_block}
+        <table width=70%>
+            <tr>
+                <td width="3%">&nbsp;</td>
+                <td width="22%">
+                    {BEGIN groups_per_page_block}
+                    Groups per page:&nbsp;
+					<select
+                        onChange="document.location='dreport.{$ext}?rname={$reportNamejs}&pagesize='+this.options[this.selectedIndex].value;">
+                        <option value="1" {$gpp1_selected}>1</option>
+                        <option value="3" {$gpp3_selected}>3</option>
+                        <option value="5" {$gpp5_selected}>5</option>
+                        <option value="10" {$gpp10_selected}>10</option>
+                        <option value="50" {$gpp50_selected}>50</option>
+                        <option value="100" {$gpp100_selected}>100</option>
+                        <option value="-1" {$gpp0_selected}>All</option>
+                    </select>
+                    {END groups_per_page_block}
+                    {BEGIN records_per_page_block}
+                    Records Per Page:&nbsp;
+					<select
+                        onChange="document.location='dreport.{$ext}?rname={$reportNamejs}&pagesize='+this.options[this.selectedIndex].value;">
+                        <option value="10" {$rpp10_selected}>10</option>
+                        <option value="20" {$rpp20_selected}>20</option>
+                        <option value="50" {$rpp50_selected}>50</option>
+                        <option value="100" {$rpp100_selected}>100</option>
+                        <option value="500" {$rpp500_selected}>500</option>
+                        <option value="-1" {$rpp0_selected}>All</option>
+                    </select>
+                    {END records_per_page_block}
+                </td>
+                <td width="45%">
+                    {$pagination_bad}
+                </td>
+            </tr>
+        </table>
+		{END records_display_block}
+        
+        {BEGIN grid_block}
+        <table class="report" width="95%" cellpadding="1" cellspacing="2" align="center" id="legend" {BEGIN legend_disp}style="display: none;"{END legend_disp}>
+        {BEGIN grid_row}
+        {BEGIN group}
+        <!-- group headers -->
+        {BEGIN newgroup}
+        {BEGIN first_group_block}
+	        <tr>
+                {$first_group_html}
+            </tr>
+		{END first_group_block}
+            <tr>
+                {BEGIN group_headers}
+                {BEGIN groups_equal_block}
+                <td colspan="{$head_colspan}" groupname="{$groupId}" class="header_{$group_order} class{$groupId}g0f0u class{$groupId}g">
+                    <font style="font-weight:900">{$grval}</font>
+                </td>	
+                {END groups_equal_block}
+                {BEGIN groups_order_block}
+                <td class="nbgroup_{$fieldId} class{$groupId}g class{$fieldId}f class{$groupId}g{$fieldId}f{$group_in_uniq}u" groupname="{$groupId}" fieldname="{$fieldId}" uniqe="{$group_in_uniq}" style="border-style:none;border-left:1px solid #cccccc;border-right:1px solid black;">&nbsp;</td>
+                {END groups_order_block}
+                {END group_headers}
+            </tr>
+            {END newgroup}
+            <!--end group headers-->
+            {END group}
+            
+            {BEGIN details_summary_block}
+            <!-- data -->
+            {BEGIN row_data}
+            <tr>
+                {BEGIN group}
+                {BEGIN group_level}
+                <td class="group_{$iteration} class{$groupIdCo}g class{$iteration}f class{$groupIdCo}g{$iteration}f0u" groupname="{$groupIdCo}" fieldname="{$iteration}" {$editattrs} style="border-top:none;border-bottom:none;border-right:solid 1px black;">{$group_field_value}</td>
+				<!--
+				Deprecated. 07.06.09 AGS.
+				{BEGIN right_border}border-right:solid 1px black;{END right_border}
+				-->				
+                {END group_level}
+                {BEGIN default_level}
+                <td class="nbgroup_{$iteration} class{$groupIdCo}g class{$iteration}f class{$groupIdCo}g{$iteration}f{$group_in_uniq}u" groupname="{$groupIdCo}" fieldname="{$iteration}" uniqe="{$group_in_uniq}" {$editattrs} style="border-top:none;border-bottom:none;{BEGIN right_border}border-right:solid 1px black;{END right_border}{BEGIN left_border}border-left:solid 1px #cccccc;border-right:solid 1px black;{END left_border}">&nbsp;</td>
+                {END default_level}
+                {END group}
+                
+                {BEGIN not_group_fields_values}
+                <td class="data class25g class{$fieldNum}f class25g{$fieldNum}f0u" groupname="25" fieldname="{$fieldNum}">{$field_value}</td>
+                {END not_group_fields_values}
+            </tr>
+            {END row_data}
+            <!--end data-->
+            {END details_summary_block}
+            
+            {BEGIN group_summary_block}
+            <!-- group summary -->
+            <tr>
+                {$td_columns}
+                {BEGIN group_summary_totals}
+                <td class="nbgroup_{$group_order} class{$groupIdSummary}g class{$groupIdSummary}g0f0u" groupname="{$groupIdSummary}" style="font-weight: bold; border-top: none;{BEGIN left_border}border-left:1px solid #000;{END left_border}" colspan={$colspan_expr}>
+                    Summary for {$label} {$grval} - {$total_cnt} records total
+                </td>
+                {END group_summary_totals}
+            </tr>
+            <!--group sum-->
+            {BEGIN sum_aggregation_block}
+            <tr>
+                {BEGIN group_summary_fields_sum}
+                {BEGIN group_field_flag}
+                <td class="group_{$group_order} class{$groupIdSum}g class{$iteration}f class{$groupIdSum}g{$iteration}f0u" groupname="{$groupIdSum}" fieldname="{$iteration}" style="border-top: none;{$left_border}">Sum</td>
+                {END group_field_flag}
+                {BEGIN sum_field_flag}
+                <td class="group_{$group_order} class{$groupIdSum}g class{$iteration}f class{$groupIdSum}g{$iteration}f0u"  groupname="{$groupIdSum}" fieldname="{$iteration}">{$group_total_sum_value}</td>
+                {END sum_field_flag}
+                {BEGIN border_flag}
+                <td class="group_{$iteration} class{$groupIdSum}g class{$iteration}f class{$groupIdSum}g{$iteration}f{$group_in_uniq}u" groupname="{$groupIdSum}" fieldname="{$iteration}" uniqe="{$group_in_uniq}" style="border-style:none;{$left_border}">&nbsp;</td>
+                {END border_flag}
+                {BEGIN default_flag}
+                <td class="group_{$group_order} class{$groupIdSum}g class{$iteration}f class{$groupIdSum}g{$iteration}f0u" groupname="{$groupIdSum}" fieldname="{$iteration}">&nbsp;</td>
+                {END default_flag}
+                {END group_summary_fields_sum}
+            </tr>
+            {END sum_aggregation_block}
+            <!--group avg-->
+            {BEGIN avg_aggregation_block}
+            <tr>
+                {BEGIN group_summary_fields_avg}
+                {BEGIN group_field_flag}
+                <td class="group_{$group_order} class{$groupIdAvg}g class{$iteration}f class{$groupIdAvg}g{$iteration}f0u" groupname="{$groupIdAvg}" fieldname="{$iteration}" style="border-top: none;{$left_border}">Average</td>
+                {END group_field_flag}
+                {BEGIN avg_field_flag}
+                <td class="group_{$group_order} class{$groupIdAvg}g class{$iteration}f class{$groupIdAvg}g{$iteration}f0u" groupname="{$groupIdAvg}" fieldname="{$iteration}">{$group_total_avg_value}</td>
+                {END avg_field_flag}
+                {BEGIN border_flag}
+                <td class="group_{$iteration} class{$groupIdAvg}g class{$iteration}f class{$groupIdAvg}g{$iteration}f{$group_in_uniq}u" groupname="{$groupIdAvg}" fieldname="{$iteration}" uniqe="{$group_in_uniq}" style="border-style:none;{$left_border}">&nbsp;</td>
+                {END border_flag}
+                {BEGIN default_flag}
+                <td class="group_{$group_order} class{$groupIdAvg}g class{$iteration}f class{$groupIdAvg}g{$iteration}f0u" groupname="{$groupIdAvg}" fieldname="{$iteration}">&nbsp;</td>
+                {END default_flag}
+                {END group_summary_fields_avg}
+            </tr>
+            {END avg_aggregation_block}
+            <!--group min-->
+            {BEGIN min_aggregation_block}
+            <tr>
+                {BEGIN group_summary_fields_min}
+                {BEGIN group_field_flag}
+                <td class="group_{$group_order} class{$groupIdMin}g class{$iteration}f class{$groupIdMin}g{$iteration}f0u" groupname="{$groupIdMin}" fieldname="{$iteration}" style="border-top: none;{$left_border}">Min</td>
+                {END group_field_flag}
+                {BEGIN min_field_flag}
+                <td class="group_{$group_order} class{$groupIdMin}g class{$iteration}f class{$groupIdMin}g{$iteration}f0u" groupname="{$groupIdMin}" fieldname="{$iteration}">{$group_total_min_value}</td>
+                {END min_field_flag}
+                {BEGIN border_flag}
+                <td class="group_{$iteration} class{$groupIdMin}g class{$iteration}f class{$groupIdMin}g{$iteration}f{$group_in_uniq}u" groupname="{$groupIdMin}" fieldname="{$iteration}" uniqe="{$group_in_uniq}" style="border-style:none;{$left_border}">&nbsp;</td>
+                {END border_flag}
+                {BEGIN default_flag}
+                <td class="group_{$group_order} class{$groupIdMin}g class{$iteration}f class{$groupIdMin}g{$iteration}f0u" groupname="{$groupIdMin}" fieldname="{$iteration}">&nbsp;</td>
+                {END default_flag}
+                {END group_summary_fields_min}
+            </tr>
+            {END min_aggregation_block}
+            <!--group max-->
+            {BEGIN max_aggregation_block}
+            <tr>
+                {BEGIN group_summary_fields_max}
+                {BEGIN group_field_flag}
+                <td class="group_{$group_order} class{$groupIdMax}g class{$iteration}f class{$groupIdMax}g{$iteration}f0u" groupname="{$groupIdMax}" fieldname="{$iteration}" style="border-top: none;{$left_border}">Max</td>
+                {END group_field_flag}
+                {BEGIN max_field_flag}
+                <td class="group_{$group_order} class{$groupIdMax}g class{$iteration}f class{$groupIdMax}g{$iteration}f0u" groupname="{$groupIdMax}" fieldname="{$iteration}">{$group_total_max_value}</td>
+                {END max_field_flag}
+                {BEGIN border_flag}
+                <td class="group_{$iteration} class{$groupIdMax}g class{$iteration}f class{$groupIdMax}g{$iteration}f{$group_in_uniq}u" groupname="{$groupIdMax}" fieldname="{$iteration}" uniqe="{$group_in_uniq}" style="border-style:none;{$left_border}">&nbsp;</td>
+                {END border_flag}
+                {BEGIN default_flag}
+                <td class="group_{$group_order} class{$groupIdMax}g class{$iteration}f class{$groupIdMax}g{$iteration}f0u" groupname="{$groupIdMax}" fieldname="{$iteration}">&nbsp;</td>
+                {END default_flag}
+                {END group_summary_fields_max}
+            </tr>
+            {END max_aggregation_block}
+            <!--end group summary-->
+            {END group_summary_block}
+            <!--end grid row-->
+            {END grid_row}
+            
+            {BEGIN summary_footer}
+            <tr class="page-summary">
+                {BEGIN page_order_fields}
+                {BEGIN show}
+                <td class="blackshade class40g class{$fieldId}f class40g{$fieldId}f0u" fieldname="{$fieldId}" groupname="40">{$label}</td>
+                {END show}
+                {END page_order_fields}
+            </tr>
+            {END summary_footer}
+            
+            {BEGIN page_summary_block}
+            <!--page summary-->
+            <tr>
+                <td groupname="26" class="pagesummary class26g class26g0f0u" colspan={$testAgr}>Page summary {$page_total_cnt} - records total</td>
+            </tr>
+            <!--  sum -->
+            {BEGIN sum_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_sum}
+                {BEGIN first_field_flag}
+                <td class="pagesummary class29g class1f class29g1f0u" groupname="29" fieldname="1">Sum</td>
+                {END first_field_flag}
+                {BEGIN sum_field_flag}
+                <td class="pagesummary class29g class{$fieldId}f class29g{$fieldId}f0u" groupname="29" fieldname="{$fieldId}">{$page_total_sum}</td>
+                {END sum_field_flag}
+                {BEGIN default_flag}
+                <td class="pagesummary class29g class{$fieldId}f class29g{$fieldId}f0u" groupname="29" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_sum}
+            </tr>
+            {END sum_aggregation_block}
+            <!--  avg -->
+            {BEGIN avg_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_avg}
+                {BEGIN first_field_flag}
+                <td class="pagesummary class30g class1f class30g1f0u" groupname="30" fieldname="1">Average</td>
+                {END first_field_flag}
+                {BEGIN avg_field_flag}
+                <td class="pagesummary class30g class{$fieldId}f class30g{$fieldId}f0u" groupname="30" fieldname="{$fieldId}">{$page_total_avg}</td>
+                {END avg_field_flag}
+                {BEGIN default_flag}
+                <td class="pagesummary class30g class{$fieldId}f class30g{$fieldId}f0u" groupname="30" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_avg}
+            </tr>
+            {END avg_aggregation_block}
+            <!--  min -->
+            {BEGIN min_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_min}
+                {BEGIN first_field_flag}
+                <td class="pagesummary class27g class1f class27g1f0u" groupname="27" fieldname="1">Min</td>
+                {END first_field_flag}
+                {BEGIN min_field_flag}
+                <td class="pagesummary class27g class{$fieldId}f class27g{$fieldId}f0u" groupname="27" fieldname="{$fieldId}">{$page_total_min}</td>
+                {END min_field_flag}
+                {BEGIN default_flag}
+                <td class="pagesummary class27g class{$fieldId}f class27g{$fieldId}f0u" groupname="27" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_min}
+            </tr>
+            {END min_aggregation_block}
+            <!--  max -->
+            {BEGIN max_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_max}
+                {BEGIN first_field_flag}
+                <td class="pagesummary class28g class1f class28g{$fieldId}f0u" groupname="28" fieldname="1">Max</td>
+                {END first_field_flag}
+                {BEGIN max_field_flag}
+                <td class="pagesummary class28g class{$fieldId}f class28g{$fieldId}f0u" groupname="28" fieldname="{$fieldId}">{$page_total_max}</td>
+                {END max_field_flag}
+                {BEGIN default_flag}
+                <td class="pagesummary class28g class{$fieldId}f class28g{$fieldId}f0u" groupname="28" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_max}
+            </tr>
+            {END max_aggregation_block}
+            <!--end page summary-->
+            {END page_summary_block}
+            
+            {BEGIN global_summary_block}
+            <!--------------------------------------global summary-------------------------------------------->
+            <tr>
+                <td class="globalsummary class31g class31g0f0u" groupname="31" colspan={$testAgr}>Global summary {$global_total_cnt} - records total</td>
+            </tr>
+            <!-- sum -->
+            {BEGIN sum_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_sum}
+                {BEGIN first_field_flag}
+                <td class="globalsummary class34g class1f class34g1f0u" groupname="34" fieldname="1">Sum</td>
+                {END first_field_flag}
+                {BEGIN sum_field_flag}
+                <td class="globalsummary class34g class{$fieldId}f class34g{$fieldId}f0u" groupname="34" fieldname="{$fieldId}">{$global_total_sum}</td>
+                {END sum_field_flag}
+                {BEGIN default_flag}
+                <td class="globalsummary class34g class{$fieldId}f class34g{$fieldId}f0u" groupname="34" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_sum}
+            </tr>
+            {END sum_aggregation_block}
+            <!-- avg -->
+            {BEGIN avg_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_avg}
+                {BEGIN first_field_flag}
+                <td class="globalsummary class35g class1f class35g1f0u" groupname="35" fieldname="1">Average</td>
+                {END first_field_flag}
+                {BEGIN avg_field_flag}
+                <td class="globalsummary class35g class{$fieldId}f class35g{$fieldId}f0u" groupname="35" fieldname="{$fieldId}">{$global_total_avg}</td>
+                {END avg_field_flag}
+                {BEGIN default_flag}
+                <td class="globalsummary class35g class{$fieldId}f class35g{$fieldId}f0u" groupname="35" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_avg}
+            </tr>
+            {END avg_aggregation_block}
+            <!-- min -->
+            {BEGIN min_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_min}
+                {BEGIN first_field_flag}
+                <td class="globalsummary class32g class1f class32g1f0u" groupname="32" fieldname="1">Min</td>
+                {END first_field_flag}
+                {BEGIN min_field_flag}
+                <td class="globalsummary class32g class{$fieldId}f class32g{$fieldId}f0u" groupname="32" fieldname="{$fieldId}">{$global_total_min}</td>
+                {END min_field_flag}
+                {BEGIN default_flag}
+                <td class="globalsummary class32g class{$fieldId}f class32g{$fieldId}f0u" groupname="32" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_min}
+            </tr>
+            {END min_aggregation_block}
+            <!-- max -->
+            {BEGIN max_aggregation_block}
+            <tr>
+                {BEGIN page_summary_fields_max}
+                {BEGIN first_field_flag}
+                <td class="globalsummary class33g class1f class33g1f0u" groupname="33" fieldname="1">Max</td>
+                {END first_field_flag}
+                {BEGIN max_field_flag}
+                <td class="globalsummary class33g class{$fieldId}f class33g{$fieldId}f0u" groupname="33" fieldname="{$fieldId}">{$global_total_max}</td>
+                {END max_field_flag}
+                {BEGIN default_flag}
+                <td class="globalsummary class33g class{$fieldId}f class33g{$fieldId}f0u" groupname="33" fieldname="{$fieldId}">&nbsp;</td>
+                {END default_flag}
+                {END page_summary_fields_max}
+            </tr>
+            {END max_aggregation_block}
+            <!--end global summary-->
+            {END global_summary_block}
+        </table>
+        <div id="location" src={$reportName} style="display: none;"></div>
+        {END grid_block}
+        
+		{BEGIN bottom_pagination_block}
+        <table width="100%">
+            <tr>
+                <td height=30 valign=middle align=center>{$pagination}</td>
+            </tr>
+        </table>
+		{END bottom_pagination_block}
+		
+	{BEGIN editor_block}
+			<div id="example" class="myDialog">
+		<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" align="center" id="body_page">
+			<tr>
+				<td valign="top">
+					<table cellpadding="0" cellspacing="0" border="0" width="850px" align="center">
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+									<tr>
+										<td class="headerlistup_left" width="7px" valign="middle" align="center" height="31" />
+										<td class="upeditmenu_gif" valign="middle" align="center" id="wnd_header" height="31" nowrap>
+											Report: Style Editor
+										</td>
+										<td class="headerlistup_right" width="7px" valign="middle" align="center" height="31"/>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0" width="100%" class="main_table_border2">
+									<tr>
+										<td>
+											<table cellpadding="10" cellspacing="0" border="0" width="100%" class="main_table_border">
+												<tr>
+													<td class="editshade_b" style="border:0px">
+														<!-- -->
+														<table id="params" cellpadding="3" cellspacing="3" width="95%">
+															<thead>
+																<tr id="headerpanel">
+																	<th>Background</th>
+																	<th>Font color</th>
+																	<th>Font family</th>
+																	<th>Font size</th>
+																	<th>Font style</th>
+																	<th>Align</th>
+																	<th>Padding</th>
+																	<!--th>&nbsp;</th-->
+																</tr>
+															</thead>
+															<tbody>
+																<tr id="bottompanel">
+																	<td>
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div id="picker2" act="background" class="ColorPickerDivSample" style="width: 50px; background: #f0f8ff;" />
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img id="pick" class="selector" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td>
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div id="picker1" act="color" class="ColorPickerDivSample" style="width: 50px; background: #f0f8ff;"/>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img class="selector" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td>
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div id="fontfamily" class="ColorPickerDivSample" style="width: 90px; background: #ffffff;">
+																						default
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img class="selectorfamily" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																			<tr style="position: absolute; display: none;" id="fontfamilyselect">
+																				<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																					<table style="width: 100%;">
+																						<tr><td class="selectstyle">default</td></tr>
+																						<tr><td class="selectstyle">Arial</td></tr>
+																						<tr><td class="selectstyle">Comic Sans MS</td></tr>
+																						<tr><td class="selectstyle">Courier New</td></tr>
+																						<tr><td class="selectstyle">Times New Roman</td></tr>
+																						<tr><td class="selectstyle">Verdana</td></tr>
+																					</table>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td>
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div id="fontsize" class="ColorPickerDivSample" style="width: 50px; background: #ffffff;">
+																						default
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img class="selectorfontsize" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																			<tr style="position: absolute; display: none;" id="fontsizeselect">
+																				<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																					<table style="width: 100%;">
+																						<tr><td class="selectstyle">default</td></tr>
+																						<tr><td class="selectstyle">7px</td></tr>
+																						<tr><td class="selectstyle">8px</td></tr>
+																						<tr><td class="selectstyle">9px</td></tr>
+																						<tr><td class="selectstyle">10px</td></tr>
+																						<tr><td class="selectstyle">11px</td></tr>
+																						<tr><td class="selectstyle">12px</td></tr>
+																						<tr><td class="selectstyle">13px</td></tr>
+																						<tr><td class="selectstyle">14px</td></tr>
+																						<tr><td class="selectstyle">15px</td></tr>
+																						<tr><td class="selectstyle">16px</td></tr>
+																						<tr><td class="selectstyle">17px</td></tr>
+																					</table>
+																				</td>
+																			</tr>
+																		</table>																	
+																	</td>
+																	<td>
+																		<input type="checkbox" id="bold" name="bold" value="bold">&nbsp;<label for="bold">Bold</label>&nbsp;<input type="checkbox" id="italic" name="italic" value="italic">&nbsp;<label for="italic">Italic</label>
+																	</td>
+																	<td style="padding-left: 0px;">
+																		<table width="100" align="center" id="aligntable">
+																			<tr>
+																				<td id="left" onclick="changeact('textAlign','left',this);"><img src="./images/leftalign.jpg"/></td>
+																				<td id="center" onclick="changeact('textAlign','center',this);"><img src="./images/centeralign.jpg"/></td>
+																				<td id="right" onclick="changeact('textAlign','right',this);"><img src="./images/rightalign.jpg"/></td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td id="paddingSet">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div id="padding" class="ColorPickerDivSample" style="width: 50px; background: #ffffff;">
+																						2px
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img class="selectorpadding" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																			<tr style="position: absolute; display: none;" id="paddingselect">
+																				<td colspan="2" style="padding: 0px 0px 0px 5px;" class="SelectorDiv">
+																					<table style="width: 100%;">
+																						<tr><td class="selectstyle">1px</td></tr>
+																						<tr><td class="selectstyle">2px</td></tr>
+																						<tr><td class="selectstyle">3px</td></tr>
+																						<tr><td class="selectstyle">4px</td></tr>
+																						<tr><td class="selectstyle">5px</td></tr>
+																						<tr><td class="selectstyle">6px</td></tr>
+																						<tr><td class="selectstyle">7px</td></tr>
+																						<tr><td class="selectstyle">8px</td></tr>
+																						<tr><td class="selectstyle">9px</td></tr>
+																						<tr><td class="selectstyle">10px</td></tr>
+																					</table>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<!--td>&nbsp;</td-->
+																</tr>
+																<tr id="middlepanel" class="middlepanel">
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width:50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="backgroundColor" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>					
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="color" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="fontFamily" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="fontSize" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="font" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="textAlign" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="padding" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="center" class="middlepanel">
+																		<table cellspacing="0" cellpadding="0" border="0" id="all">
+																			<tr>
+																				<td style="padding: 0px 0px 0px 5px;">
+																					<div class="ColorPickerDivSample" style="width: 50px; background: #FFFFFF">
+																						apply to
+																					</div>
+																				</td>
+																				<td style="padding: 0px 0px 0px 0px;">
+																					<img act="all" class="selectorApply" src="images/selector.png"/>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>							
+																</tr>
+																
+															</tbody>
+														</table>
+														<!-- -->
+													</td>
+												</tr>
+												<tr>
+													<td id="btns" align=center>
+														<span class="buttonborder"><input type="button" id="backbtn" name="backbtn" class="button" value="&nbsp;Back&nbsp;"></span>
+														<span style="position:absolute;" id="jumptospan"></span>
+														<span class="buttonborder"><input type="button" id="jumpto" name="jumpto" class="button" value="&nbsp;Jump to ...&nbsp;" onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;"></span>
+														<span class="buttonborder"><input type="button" id="nextbtn" name="nextbtn" class="button" value="&nbsp;Next&nbsp;"></span>
+							{BEGIN b_is_report_save}
+                                                        <span id="saveasbtnbox" class="buttonborder"><input type=button id="saveasbtn" name="saveasbtn" class="button" value="&nbsp;Save as...&nbsp;"></span>
+                                                        {END b_is_report_save}	
+                                                        {BEGIN b_is_report_name}
+                                                        <span id="savebtnbox" class="buttonborder"><input type=button id="savebtn" name="savebtn" class="button" value="&nbsp;Save&nbsp;"></span>
+                                                        {END b_is_report_name}
+														<span class="buttonborder"><input type="button" id="default" name="default" class="button" value="&nbsp;Reset&nbsp;to&nbsp;default&nbsp;"></span>														
+														<span class=buttonborder><input type="button" id="previewbtn" name="previewbtn" class="button" value="Preview"></span>
+														<a id="preview" href="dreport.php?rname={$report_name_preview}&param=preview&ie=UTF-8&iframe"></a>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+									<tr>
+										<td class="headerlistdown_left" width="8px" valign="middle" align="center" height="15"/>
+										<td class="downeditmenu" valign="middle" align="center" height="15">&nbsp;</td>
+										<td class="headerlistdown_right" width="8px" valign="middle" align="center" height="15"/>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>													
+	</div>
+
+	<style>
+{literal}
+	div.action { position: absolute;  width: 170px; padding: 0; }
+{/literal}
+</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=5 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer">Where Condition</td></tr>
+		<tr><td id=row3 style="cursor:pointer">Group fields</td></tr>
+		<tr><td id=row4 style="cursor:pointer">Totals</td></tr>
+		<tr><td id=row5 style="cursor:pointer">Miscellaneous </td></tr>
+		<tr><td id=row6 style="cursor:pointer">Sort fields</td></tr>
+		<tr><td id=row7 style="cursor:pointer">Style Editor</td></tr>
+		<tr><td id=row8 style="cursor:pointer">Report Settings</td></tr>
+		<tr><td id=row9 style="cursor:pointer">Dynamic Permissions</td></tr>
+		<tr><td id=row10 style="cursor:pointer;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row11 style="cursor:pointer">Back to main application</td></tr>
+	</table>
+</div>
+
+	<div id="alert"/></div>
+
+
+	<div id="groupSelectorDiv">
+	<table width=100% cellpadding=5 cellspacing=0 border=0>
+		<tr><td><div class="groupSelect" id="groupSelectGroup" value="group">group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectField" value="field">field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectTable" value="table">all&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+	</table>
+</div>
+
+<div id="colorPickerVtd">
+	<table class="tableColorPicker" cellspacing="4"> 
+		<tr class="colorPickerVtdTr"> 
+			<td class="row1cell1">&nbsp;</td>
+			<td class="row1cell2">&nbsp;</td>
+			<td class="row1cell3">&nbsp;</td>
+			<td class="row1cell4">&nbsp;</td>
+			<td class="row1cell5">&nbsp;</td>
+			<td class="row1cell6">&nbsp;</td>
+			<td class="row1cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row2cell1">&nbsp;</td>
+			<td class="row2cell2">&nbsp;</td>
+			<td class="row2cell3">&nbsp;</td>
+			<td class="row2cell4">&nbsp;</td>
+			<td class="row2cell5">&nbsp;</td>
+			<td class="row2cell6">&nbsp;</td>
+			<td class="row2cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row3cell1">&nbsp;</td>
+			<td class="row3cell2">&nbsp;</td>
+			<td class="row3cell3">&nbsp;</td>
+			<td class="row3cell4">&nbsp;</td>
+			<td class="row3cell5">&nbsp;</td>
+			<td class="row3cell6">&nbsp;</td>
+			<td class="row3cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row4cell1">&nbsp;</td>
+			<td class="row4cell2">&nbsp;</td>
+			<td class="row4cell3">&nbsp;</td>
+			<td class="row4cell4">&nbsp;</td>
+			<td class="row4cell5">&nbsp;</td>
+			<td class="row4cell6">&nbsp;</td>
+			<td class="row4cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row5cell1">&nbsp;</td>
+			<td class="row5cell2">&nbsp;</td>
+			<td class="row5cell3">&nbsp;</td>
+			<td class="row5cell4">&nbsp;</td>
+			<td class="row5cell5">&nbsp;</td>
+			<td class="row5cell6">&nbsp;</td>
+			<td class="row5cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row6cell1">&nbsp;</td>
+			<td class="row6cell2">&nbsp;</td>
+			<td class="row6cell3">&nbsp;</td>
+			<td class="row6cell4">&nbsp;</td>
+			<td class="row6cell5">&nbsp;</td>
+			<td class="row6cell6">&nbsp;</td>
+			<td class="row6cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row7cell1">&nbsp;</td>
+			<td class="row7cell2">&nbsp;</td>
+			<td class="row7cell3">&nbsp;</td>
+			<td class="row7cell4">&nbsp;</td>
+			<td class="row7cell5">&nbsp;</td>
+			<td class="row7cell6">&nbsp;</td>
+			<td class="row7cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row8cell1">&nbsp;</td>
+			<td class="row8cell2">&nbsp;</td>
+			<td class="row8cell3">&nbsp;</td>
+			<td class="row8cell4">&nbsp;</td>
+			<td class="row8cell5">&nbsp;</td>
+			<td class="row8cell6">&nbsp;</td>
+			<td class="row8cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row9cell1">&nbsp;</td>
+			<td class="row9cell2">&nbsp;</td>
+			<td class="row9cell3">&nbsp;</td>
+			<td class="row9cell4">&nbsp;</td>
+			<td class="row9cell5">&nbsp;</td>
+			<td class="row9cell6">&nbsp;</td>
+			<td class="row9cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row0cell1">&nbsp;</td>
+			<td class="row0cell2">&nbsp;</td>
+			<td class="row0cell3">&nbsp;</td>
+			<td class="row0cell4">&nbsp;</td>
+			<td class="row0cell5">&nbsp;</td>
+			<td class="row0cell6">&nbsp;</td>
+			<td class="row0cell7">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="7" id="nocolor" class="ColorickerNoColor">No color</td>
+		</tr>
+	</table>
+</div>		
+	
+
+	{END editor_block}
+{$footer}	
+</body>
+</html>

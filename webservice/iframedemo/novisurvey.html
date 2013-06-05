@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" language="javascript">
+function generateuid()
+{
+	var randomnumber=Math.floor(Math.random()*10000)
+	document.getElementById('pangeademo').src = "http://pangeaifa.com/NoviSurvey/n/PREGNANCYRELEASEANDCONSENTFORM.aspx?PangeaID=" + randomnumber;
+}
+</script>
+<script language="JavaScript">
+<!--
+function autoResize(id){
+    var newheight;
+    var newwidth;
+
+    if(document.getElementById){
+        newheight=document.getElementById(id).contentWindow.document .body.scrollHeight;
+        newwidth=document.getElementById(id).contentWindow.document .body.scrollWidth;
+    }
+
+    document.getElementById(id).height= (newheight) + "px";
+    document.getElementById(id).width= (newwidth) + "px";
+}
+//-->
+</script>
+
+<body onLoad=generateuid()>
+<iframe id="pangeademo" width="100%" height="1380px" onLoad="autoResize('pangeademo');">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+</body>
+</html>

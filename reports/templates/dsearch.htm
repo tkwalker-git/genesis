@@ -1,0 +1,86 @@
+<html {$html_attrs}>
+<head>
+<title>{$reportTitle}: Advanced search page</title>
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+<!--[if IE]>
+<link rel="stylesheet" href="include/styleIE.css" type="text/css" />
+<![endif]-->
+<style>
+#center_block 	{margin:0 auto;border: #cccccc 1px solid;}
+#conditions_block {padding: 1em 0;}
+#contents_block {text-align:center;width:100%}
+#header_block 	{white-space:nowrap;height:31px;padding-top:5px;}
+#main_block 	{padding:10px 0;width:100%}
+#inmain_block 	{margin:0 10px}
+#fields_block 	{width:100%}
+#buttons_block 	{width:100%;padding:10px 0;}
+#buttons_block > * {margin:0 2px}
+.text			{font-weight: normal;}
+</style>
+<!--[if IE]>
+<style>
+#main_block 	{padding:10px 10;}
+#inmain_block 	{margin:0 0px}
+</style>
+<![endif]-->
+</head>
+<body bgcolor=white>
+{BEGIN body}
+{$header}
+{BEGIN contents_block}
+<table align=center id="center_block">
+	<tr><td id="contents_block">
+	<div id="header_block" class="tableheader">
+		{$reportTitle} - Advanced search
+	</div>
+
+{BEGIN conditions_block}
+<div id="conditions_block">
+	<span class=fieldname>Search for: </span>
+	<input type="radio" name="type" {$all_checkbox}>All conditions
+	&nbsp;&nbsp;&nbsp;
+	<input type="radio" name="type" {$any_checkbox}>Any condition
+</div>
+{END conditions_block}
+
+<table cellpadding="4" cellspacing="0" border="0" id="fields_block">
+	<tr valign="center" class="blackshade">
+		<td align="center" valign="middle">&nbsp;</td>
+		<td width="30" align="center" valign="middle" class="fieldname">NOT</td>
+		<td colspan="3" align="center" valign="middle">&nbsp; </td>
+	</tr>
+
+{BEGIN page_order_fields}
+	{$fieldblock}
+	<tr class="shade">
+		<td class="fieldname"><span class="text">{$table}.</span>{$name}</td>
+		<td align="center">
+			<input type="checkbox" {$notbox}>
+		</td>
+		<td>{$searchtype}</td>
+		<td width="270">{$editcontrol}</td>
+		<td width="270">
+			<span {$second_id}>{$editcontrol1}</span>
+		</td>
+	</tr>
+{END page_order_fields}
+
+</table>
+
+<div class="blackshade" id="buttons_block">
+{BEGIN search_button}
+ <span class=buttonborder><input class=button type=button value="Search" {$searchbutton_attrs}></span>
+{END search_button} 
+{BEGIN reset_button}
+ <span class=buttonborder><input class=button type=button value="Reset" {$resetbutton_attrs}></span>
+{END reset_button}
+{BEGIN back_button}
+ <span class=buttonborder><input class=button type=button value="Back to list" {$backbutton_attrs}></span>
+{END back_button}
+</div>
+</td></tr></table>
+{END contents_block}
+{$footer}
+{END body}
+</body>
+</html>

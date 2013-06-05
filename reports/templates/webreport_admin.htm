@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+    <head>
+        <title>Admin page</title>
+        {$h_includes}
+    </head>
+    <body>
+        {$b_includes}
+        <style type="text/css">
+            body 			{ font: 12px/14px Arial, Verdana; }
+            select 			{ line-height: 1.4em; }
+            .buttonborder 	{ margin-right: 10px; }
+            #sql_query 		{ display:none; }
+			li 		{ list-style: none; }
+			a, a:hover 
+			{
+				text-decoration: none; 
+				color:black;
+				font-family: Tahoma, Verdana, Arial, SunSans-Regular, Sans-Serif;
+				font-size: 12px;
+			}
+        </style>
+       <table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" align="center" id="body_page">
+	<tr><td>{$header}</td></tr>
+            <tr>
+                <td valign="top" style="padding-top:20px">
+                    <table cellpadding="0" cellspacing="0" border="0" width="600px" align="center">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistup_left" width="7px" valign="middle" align="center" height="31" />
+                                        <td class="upeditmenu_gif" valign="middle" align="center" id="wnd_header" height="31" nowrap>
+                                            Admin page: Table permissions
+                                        </td>
+                                        <td class="headerlistup_right" width="7px" valign="middle" align="center" height="31"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="main_table_border" style="border:0px;padding:0px;padding-bottom:10px;">
+									<tr>
+										<td colspan=2 id="my_tabs">
+											<div id="radio_select_table">
+												<ul>
+													<li id=li_db><a href="#tabs-0" id="radio_db">Database tables</a></li>
+													<li id=li_project><a href="#tabs-0" id="radio_project">Project tables</a></li>
+													<li id=li_custom><a href="#tabs-0" id="radio_custom">SQL queries</a></li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr id="tabs-0">
+                                        <td>
+                                            <table cellpadding="2" cellspacing="0" border="0" width="100%" class="main_table_border2">
+												<tr>
+													<td class="editshade" style="padding-left:10px;font-weight:normal;">
+													<b>{$group_header}</b>
+                                                    </td>
+													<td class="editshade" style="font-weight:normal;">
+													<input type=checkbox id="ch_all">&nbsp;<b>Select/deselect all</b>
+													</td>
+                                                </tr>
+                                                <tr style="padding-left:10px">
+													<td class="editshade" style="border:0px;vertical-align:top;padding-left:10px;padding-bottom:10px;font-weight:normal;">
+													<div id="group_list">
+                                                        {$group_list}
+													</div>
+                                                    </td>
+                                                    <td class="editshade" style="border:0px;vertical-align:top;font-weight:normal;padding-bottom:10px;" width="100%" >
+													<div id="table_list">
+                                                        {$table_list}
+													</div>
+                                                    </td>
+                                                </tr>
+											</table>
+                                        </td>
+                                    </tr>
+                                                <tr>
+                                                    <td id="btns" align=center colspan=2 style="padding-top:10px;">
+							<span class="buttonborder"><input type="button" id="saveexitbtn" name="saveexitbtn" class="button" value="&nbsp;Save&nbsp;"></span>
+                                                        <span class="buttonborder"><input type="button" id="backbtn" name="backbtn" class="button" value="&nbsp;Back to menu&nbsp;"></span>
+                                                    </td>
+                                                </tr>
+                                            
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistdown_left" width="8px" valign="middle" align="center" height="15"/>
+                                        <td class="downeditmenu" valign="middle" align="center" height="15">&nbsp;</td>
+                                        <td class="headerlistdown_right" width="8px" valign="middle" align="center" height="15"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+	<tr><td>{$footer}</td></tr>
+        </table>
+<iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+		<div id="alert"/>
+		
+    </body>
+</html>

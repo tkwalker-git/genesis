@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+    <head>
+        <title>Report: Tables</title>
+        {$h_includes}
+    </head>
+    <body>
+        {$b_includes}
+        <style type="text/css">
+            body 			{ font: 12px/14px Arial, Verdana; height:auto;}
+            select 			{ line-height: 1.4em; }
+            .buttonborder 	{ margin-right: 10px; }
+            #sql_query 		{ display:none; }
+			li 		{ list-style: none; }
+			a, a:hover 
+			{
+				text-decoration: none; 
+				color:black;
+				font-family: Tahoma, Verdana, Arial, SunSans-Regular, Sans-Serif;
+				font-size: 12px;
+			}
+        </style>
+        <table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" align="center" id="body_page">
+	<tr><td>{$header}</td></tr>
+            <tr>
+                <td valign="top" style="padding-top:100px">
+                    <table cellpadding="0" cellspacing="0" border="0" width="600px" align="center">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistup_left" width="7px" valign="middle" align="center" height="31" />
+                                        <td class="upeditmenu_gif" valign="middle" align="center" id="wnd_header" height="31" nowrap>
+                                            Report: Tables{$report_title}
+                                        </td>
+                                        <td class="headerlistup_right" width="7px" valign="middle" align="center" height="31"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="main_table_border2">
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="10" cellspacing="0" border="0" width="100%" class="main_table_border">
+												<tr>
+													<td  style="padding:0px;" id="my_tabs">
+														<div id="radio_select_table">
+															<ul>
+																{BEGIN view_radio_db}
+																<li><a href="#tabs-0" id="radio_db">Database tables</a></li>
+																{END view_radio_db}
+																{BEGIN view_radio_project}
+																<li id=li_project><a href="#tabs-0" id="radio_project">Project tables</a></li>
+																{END view_radio_project}
+																<li><a href="#tabs-0" id="radio_custom">SQL queries</a></li>
+															</ul>
+														</div>
+													</td>
+												</tr>
+                                                <tr>
+                                                    <td class="editshade_b" style="border:0px">
+                                                        <!-- -->
+                                                        <table cellpadding="1" cellspacing="1" border="0" width="100%">
+                                                            <tr>
+                                                                <td id="tl" class="editshade_b" style="border:0px">
+                                                                </td>
+                                                            </tr>
+                                                            <tr id="tabs-0">
+                                                                <td>
+                                                                    <select id="tables" size="12" name="tables" class="inputselect" style="font-size:12px;width:100%"> <!--multiple=""-->
+                                                                        {$tables}
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <!--Hold CTRL and click to select more than one table <br/>(Recommended only for Related Tables)-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <!-- -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="btns" align=center>
+                                                        <span class="buttonborder"><input type="button" id="backbtn" name="backbtn" class="button" value="&nbsp;Back&nbsp;"></span>
+                                                        <span style="position:absolute;" id="jumptospan"></span>
+                                                        <span class="buttonborder"><input type="button" id="jumpto" name="jumpto" class="button" value="&nbsp;Jump to ...&nbsp;" onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;"></span>
+														<span id=add_new_query>
+														<span class="buttonborder"><input type="button" id="addsql" name="addsql" class="button" value="&nbsp;New query&nbsp;"></span>
+														<a id="a_addsql" href="web_query.php?type=webreports&sql=add&page=create&ie=UTF-8&iframe"></a>
+														</span>
+														<span class=buttonborder><input type="button" id="sqlbtn" name="sqlbtn" class="button" value="SQL Query"></span>
+														<a id="sql_query" href="web_query.php?type=webreports&sql=edit&name=tables&page=edit&ie=UTF-8&iframe"></a>
+                                                        <span class="buttonborder"><input type="button" id="nextbtn" name="nextbtn" class="button" value="&nbsp;Next&nbsp;"></span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistdown_left" width="8px" valign="middle" align="center" height="15"/>
+                                        <td class="downeditmenu" valign="middle" align="center" height="15">&nbsp;</td>
+                                        <td class="headerlistdown_right" width="8px" valign="middle" align="center" height="15"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+	<tr><td>{$footer}</td></tr>
+        </table>
+
+        <style>
+{literal}
+	div.action { position: absolute;  width: 170px; padding: 0; }
+{/literal}
+</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=5 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer">Where Condition</td></tr>
+		<tr><td id=row3 style="cursor:pointer">Group fields</td></tr>
+		<tr><td id=row4 style="cursor:pointer">Totals</td></tr>
+		<tr><td id=row5 style="cursor:pointer">Miscellaneous </td></tr>
+		<tr><td id=row6 style="cursor:pointer">Sort fields</td></tr>
+		<tr><td id=row7 style="cursor:pointer">Style Editor</td></tr>
+		<tr><td id=row8 style="cursor:pointer">Report Settings</td></tr>
+		<tr><td id=row9 style="cursor:pointer">Dynamic Permissions</td></tr>
+		<tr><td id=row10 style="cursor:pointer;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row11 style="cursor:pointer">Back to main application</td></tr>
+	</table>
+</div>
+	<iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>				
+		<div id="alert"/>
+		
+    </body>
+</html>

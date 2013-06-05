@@ -1,0 +1,39 @@
+body
+{
+	background-image:url(images/bg.png);
+}
+
+.rounded
+{
+	
+	width:500px;
+	padding:10px;
+	background-image:url(images/bg-18.png)!important;
+	background-repeat:repeat!important;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+	font-family:Arial;
+	z-index:9999;
+	
+}
+
+.inner
+{
+	width:500px;
+	background-color:#D5D0C0!important;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+	border-radius: 10px;
+	z-index:100001;
+	
+	/*min-height:415px; /*ff*/
+	/*height: auto !important; /*ie7 */
+}
+
+.headingsub
+{
+	background-color:#FFFFFF; padding:10px 27px; font-family:Arial; font-weight:normal; font-size:17px
+}

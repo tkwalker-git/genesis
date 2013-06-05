@@ -1,0 +1,69 @@
+{BEGIN mainmenu_block}
+{BEGIN mainmenustyle_block}
+<style>
+/* For Gmenu on the list page */
+.Gmenu ul, .Gmenu ul li{margin:0;padding:0;display:inline;}
+.Gmenu ul li {float:left;width:auto;}
+.Gmenu ul li a.ahr{padding:0 9px;}
+.Gmenu ul li ul {display:none;position:absolute;z-index:1;}
+.Gmenu ul li ul li {display:block;border-top:0px;padding: 2px 0 2px 0;white-space:nowrap;}
+</style>
+<!--[if IE]>
+<style>.Gmenu ul li ul{left:0px;}</style>
+<![endif]-->
+
+<style>
+/* for Paris */
+.menutab1 {float:left;border-collapse: collapse;margin-top:1px}
+.menutab1 * {padding:0;margin:0}
+.menutab2 {border-style:solid;border-width:1px;border-right:none;border-bottom:none;height:25px}
+.menutab3 {border-style:solid;border-width:1px;border-bottom:none; border-right:none;padding:3px;height:18px;}
+.menutab3 a {white-space:nowrap}
+.unselect{background-image: url(include/img/menu_blue_unselect.gif);}
+.select{background-image: url(include/img/menu_blue_select.gif);}
+.back_img{background-repeat:no-repeat;background-position: top right;padding-right:12px;}
+/* for Madrid */
+.menuitem {padding:6px 18px 10px 13px;margin-bottom:1px;}
+.activeM {padding:6px 18px 11px 13px;}
+.main_item{margin-right:2px;}
+</style>
+<!--[if IE]>
+{BEGIN mainmenuiestyle_block}
+<style>
+.menutab2 {height:26px;}
+.menutab3 {height:25px;}
+</style>
+{END mainmenuiestyle_block}
+<![endif]-->
+{END mainmenustyle_block}
+<div  class="Gmenu">
+<ul>
+	{BEGIN item1_menulink}
+	<li id="li1" view="topitem" >
+	&nbsp;
+{BEGIN needcurrent_item}
+<a {$item1_menulink_attrs} class='{BEGIN item1_current}highlight-tablesearch current{END item1_current}{BEGIN item1_notcurrent}tablelinkssearch{END item1_notcurrent}'>{$item1_title}</a>
+{END needcurrent_item}
+{BEGIN notneedcurrent_item}
+<a {$item1_menulink_attrs} class="tablelinks">{$item1_title}</a>
+{END notneedcurrent_item}
+&nbsp;
+
+	</li>
+	{END item1_menulink}
+	{BEGIN item2_menulink}
+	<li id="li2" view="topitem" >
+	&nbsp;
+{BEGIN needcurrent_item}
+<a {$item2_menulink_attrs} class='{BEGIN item2_current}highlight-tablesearch current{END item2_current}{BEGIN item2_notcurrent}tablelinkssearch{END item2_notcurrent}'>{$item2_title}</a>
+{END needcurrent_item}
+{BEGIN notneedcurrent_item}
+<a {$item2_menulink_attrs} class="tablelinks">{$item2_title}</a>
+{END notneedcurrent_item}
+&nbsp;
+
+	</li>
+	{END item2_menulink}
+</ul>
+</div>
+{END mainmenu_block}

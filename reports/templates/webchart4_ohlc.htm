@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+    <head>
+        <title>Chart: Parameters</title>
+        {$h_includes}
+    </head>
+    <body>
+        {$b_includes}
+        <style type="text/css">
+            body 			{ font: 12px/14px Arial, Verdana; height:auto;}
+            select 			{ line-height: 1.4em; }
+            .buttonborder 	{ margin-right: 10px; }
+            #sql_query 		{ display:none; }
+			#preview 			{ display:none; }
+        </style>
+        <table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" align="center" id="body_page">
+	<tr><td>{$header}</td></tr>
+            <tr>
+                <td valign="top" style="padding-top:50px">
+                    <table cellpadding="0" cellspacing="0" border="0" width="800px" align="center">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistup_left" width="7px" valign="middle" align="center" height="31" />
+                                        <td class="upeditmenu_gif" valign="middle" align="center" id="wnd_header" height="31" nowrap>
+                                            Chart: Parameters{$chart_title}{$chart_table}
+                                        </td>
+                                        <td class="headerlistup_right" width="7px" valign="middle" align="center" height="31"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="main_table_border2">
+                                    <tr>
+                                        <td>
+                                            <table cellpadding="10" cellspacing="0" border="0" width="100%" class="main_table_border">
+                                                <tr>
+                                                    <td class="editshade_b" style="border:0px">
+                                                        <table cellpadding="1" cellspacing="1" border="0" width="100%">
+															<tr>
+																<td id="sf" class="editshade_b" style="border:0px" >
+																	<table id="tsf" cellpadding="5" cellspacing="0" border="0" width="95%">
+																		<tbody>
+																			<tr id="clone" style="display:none">
+																				<td colspan=4></td>
+																			</tr>
+																			<tr id=clone1 style="display:none">
+																				<td>open</td>
+																				<td>
+																					<select id="" name="" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																				<td>close</td>
+																				<td>
+																					<select id="" name="" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																			</tr>
+																			<tr id=clone2 style="display:none">
+																				<td>high</td>
+																				<td>
+																					<select id="" name="" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																				<td>low</td>
+																				<td>
+																					<select id="" name="" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																			</tr>
+																			<tr id=clone3 style="display:none">
+																				<td id="">Label</td>
+																				<td id="" ><input type="text" value="" id=""/></td>
+																				<td colspan=2>
+																					<table cellpadding=5 cellspacing=0 border=0>
+																						<tr>
+																							<td id="" align="right" style="padding:0px;">
+																								<div style="width:20px;" id="" class="ColorPickerDivSample"></div>
+																							</td>
+																							<td id="" align="left" style="padding:0px;" width=60px"><img class="selector" src="images/selector.png" /></td>
+																							<td id="" align="right" style="padding:0px;">
+																								<div style="width:20px;" id="" class="ColorPickerDivSample"></div>
+																							</td>
+																							<td id="" align="left" style="padding:0px;"><img class="selector" src="images/selector.png" /></td>
+																						</tr>
+																					</table>
+																				</td>
+																			</tr>
+																			<tr id=clone_separator style="display:none"><td colspan=6 style="padding:0px;border-bottom:1px gray solid;border-bottom-style:dotted" height=1px width=100%>&nbsp;</td></tr>
+																			<tr id="ds1">
+																				<td colspan=4>Data Series 1</td>
+																			</tr>
+																			<tr>
+																				<td>open</td>
+																				<td>
+																					<select id="field_open1" name="field_open1" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																				<td>close</td>
+																				<td>
+																					<select id="field_close1" name="field_close1" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>high</td>
+																				<td>
+																					<select id="field_high1" name="field_high1" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																				<td>low</td>
+																				<td>
+																					<select id="field_low1" name="field_low1" class="inputselect">
+																						<option value=""></option>
+																						{$dataSeries}
+																					</select>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td id="label_title_1">Label</td>
+																				<td id="label_value_1"><input type="text" value="" id="series_label_1"/></td>
+																				<td colspan=2>
+																					<table cellpadding=5 cellspacing=0 border=0>
+																						<tr>
+																							<td id="picker1_div1" align="right" style="padding:0px;">
+																								<div style="width:20px;" id="picker1_1" class="ColorPickerDivSample"></div>
+																							</td>
+																							<td id="picker1_selector1" align="left" style="padding:0px;" width=60px"><img class="selector" src="images/selector.png" /></td>
+																							<td id="picker2_div1" align="right" style="padding:0px;">
+																								<div style="width:20px;" id="picker2_1" class="ColorPickerDivSample"></div>
+																							</td>
+																							<td id="picker2_selector1" align="left" style="padding:0px;"><img class="selector" src="images/selector.png" /></td>
+																						</tr>
+																					</table>
+																				</td>
+																			</tr>
+																			<tr id=separator><td colspan=4 style="padding:0px;border-bottom:1px gray solid;border-bottom-style:dotted" height=1px width=100%>&nbsp;</td></tr>
+																			<tr id="ds">
+																				<td>Label Field</td>
+																				<td colspan=3>
+																					<select id="field" name="field" class="inputselect">
+																						{$label}
+																					</select>
+																					<img src="images/icon_required.gif" />
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>	
+																</td>
+															</tr>
+                                                        </table>
+                                                        <!-- -->
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="btns" align=center>
+                                                        <span class="buttonborder"><input type="button" id="backbtn" name="backbtn" class="button" value="Back"></span>
+                                                        <span style="position:absolute;" id="jumptospan"></span>
+                                                        <span class="buttonborder"><input type="button" id="jumpto" name="jumpto" class="button" value="Jump to ..." onclick="event.cancelBubble = true;return false;" onmouseover="event.cancelBubble = true;return false;"></span>
+                                                        <span class=buttonborder><input type="button" id="sqlbtn" name="sqlbtn" class="button" value="SQL Query"></span>
+                                                        <a id="sql_query" href="web_query.php?type=webcharts&name=parameters&ie=UTF-8&iframe"></a>														
+                                                        <span class="buttonborder"><input type="button" id="nextbtn" name="nextbtn" class="button" value="Next"></span>
+                                                        {BEGIN b_is_chart_saveas}
+                                                        <span id="saveasbtnbox" class="buttonborder"><input type=button id="saveasbtn" name="saveasbtn" class="button" value="&nbsp;Save as...&nbsp;"></span>
+                                                        {END b_is_chart_saveas}															
+                                                        {BEGIN b_is_chart_save}
+                                                        <span id="savebtnbox" class="buttonborder"><input type=button id="savebtn" name="savebtn" class="button" value="Save"></span>
+                                                        {END b_is_chart_save}
+														<span class=buttonborder><input type="button" id="previewbtn" name="previewbtn" class="button" value="Preview"></span>
+														<a id="preview" href="dchart_preview.php?cname={$chart_name_preview}&ie=UTF-8&iframe"></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td class="headerlistdown_left" width="8px" valign="middle" align="center" height="15"/>
+                                        <td class="downeditmenu" valign="middle" align="center" height="15">&nbsp;</td>
+                                        <td class="headerlistdown_right" width="8px" valign="middle" align="center" height="15"/>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+	<tr><td>{$footer}</td></tr>
+        </table>
+<div id="groupSelectorDiv">
+	<table width=100% cellpadding=5 cellspacing=0 border=0>
+		<tr><td><div class="groupSelect" id="groupSelectGroup" value="group">group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectField" value="field">field&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+		<tr><td><div class="groupSelect" id="groupSelectTable" value="table">all&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+	</table>
+</div>
+
+<div id="colorPickerVtd">
+	<table class="tableColorPicker" cellspacing="4"> 
+		<tr class="colorPickerVtdTr"> 
+			<td class="row1cell1">&nbsp;</td>
+			<td class="row1cell2">&nbsp;</td>
+			<td class="row1cell3">&nbsp;</td>
+			<td class="row1cell4">&nbsp;</td>
+			<td class="row1cell5">&nbsp;</td>
+			<td class="row1cell6">&nbsp;</td>
+			<td class="row1cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row2cell1">&nbsp;</td>
+			<td class="row2cell2">&nbsp;</td>
+			<td class="row2cell3">&nbsp;</td>
+			<td class="row2cell4">&nbsp;</td>
+			<td class="row2cell5">&nbsp;</td>
+			<td class="row2cell6">&nbsp;</td>
+			<td class="row2cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row3cell1">&nbsp;</td>
+			<td class="row3cell2">&nbsp;</td>
+			<td class="row3cell3">&nbsp;</td>
+			<td class="row3cell4">&nbsp;</td>
+			<td class="row3cell5">&nbsp;</td>
+			<td class="row3cell6">&nbsp;</td>
+			<td class="row3cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row4cell1">&nbsp;</td>
+			<td class="row4cell2">&nbsp;</td>
+			<td class="row4cell3">&nbsp;</td>
+			<td class="row4cell4">&nbsp;</td>
+			<td class="row4cell5">&nbsp;</td>
+			<td class="row4cell6">&nbsp;</td>
+			<td class="row4cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row5cell1">&nbsp;</td>
+			<td class="row5cell2">&nbsp;</td>
+			<td class="row5cell3">&nbsp;</td>
+			<td class="row5cell4">&nbsp;</td>
+			<td class="row5cell5">&nbsp;</td>
+			<td class="row5cell6">&nbsp;</td>
+			<td class="row5cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row6cell1">&nbsp;</td>
+			<td class="row6cell2">&nbsp;</td>
+			<td class="row6cell3">&nbsp;</td>
+			<td class="row6cell4">&nbsp;</td>
+			<td class="row6cell5">&nbsp;</td>
+			<td class="row6cell6">&nbsp;</td>
+			<td class="row6cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row7cell1">&nbsp;</td>
+			<td class="row7cell2">&nbsp;</td>
+			<td class="row7cell3">&nbsp;</td>
+			<td class="row7cell4">&nbsp;</td>
+			<td class="row7cell5">&nbsp;</td>
+			<td class="row7cell6">&nbsp;</td>
+			<td class="row7cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row8cell1">&nbsp;</td>
+			<td class="row8cell2">&nbsp;</td>
+			<td class="row8cell3">&nbsp;</td>
+			<td class="row8cell4">&nbsp;</td>
+			<td class="row8cell5">&nbsp;</td>
+			<td class="row8cell6">&nbsp;</td>
+			<td class="row8cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row9cell1">&nbsp;</td>
+			<td class="row9cell2">&nbsp;</td>
+			<td class="row9cell3">&nbsp;</td>
+			<td class="row9cell4">&nbsp;</td>
+			<td class="row9cell5">&nbsp;</td>
+			<td class="row9cell6">&nbsp;</td>
+			<td class="row9cell7">&nbsp;</td>
+		</tr>
+		<tr class="colorPickerVtdTr">
+			<td class="row0cell1">&nbsp;</td>
+			<td class="row0cell2">&nbsp;</td>
+			<td class="row0cell3">&nbsp;</td>
+			<td class="row0cell4">&nbsp;</td>
+			<td class="row0cell5">&nbsp;</td>
+			<td class="row0cell6">&nbsp;</td>
+			<td class="row0cell7">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="7" id="nocolor" class="ColorickerNoColor">No color</td>
+		</tr>
+	</table>
+</div>		
+        <style>
+{literal}
+	div.action { position: absolute; width: 170px; padding: 0; }
+{/literal}
+</style>
+<iframe id="framejump" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>
+<div id="menujump" class=action style="display:none;position:absolute;">
+	<table width=100% cellpadding=5 cellspacing=0 border=0 style="background-color:#F4F7FB;border: solid 1px blue;">
+		<tr><td id=row0 style="cursor:pointer">Tables</td></tr>
+		<tr><td id=row1 style="cursor:pointer">Table Relations</td></tr>
+		<tr><td id=row2 style="cursor:pointer">Group By</td></tr>
+		<tr><td id=row3 style="cursor:pointer">Type</td></tr>
+		<tr><td id=row4 style="cursor:pointer">Parameters</td></tr>
+		<tr><td id=row5 style="cursor:pointer">Appearance</td></tr>
+		<tr><td id=row6 style="cursor:pointer">Chart Settings</td></tr>
+		<tr><td id=row7 style="cursor:pointer">Dynamic Permissions</td></tr>
+		<tr><td id=row8 style="cursor:pointer;border-top:1px solid blue;">Back to Web Reports menu</td></tr>
+		<tr><td id=row9 style="cursor:pointer">Back to main application</td></tr>
+	</table>
+</div>
+	<iframe id="aframe" style="display:none;position:absolute;" scrolling="no" frameborder="0"></iframe>	
+		<div id="alert"/>
+    </body>
+</html>

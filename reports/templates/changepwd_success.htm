@@ -1,0 +1,38 @@
+<html {$html_attrs}>
+<head>
+<title>Change password</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+<style>
+#center_block {width:30%;margin:0 auto;}
+#contents_block {text-align:center;}
+#header_block {white-space:nowrap;height:25px;padding:5 10px 5px;text-align:center;}
+#fields_block {margin:0;padding:10px}
+#header_block > span {margin:0 5px}
+</style>
+<!--[if IE]>
+<style>
+#main_block {padding:10px 10px 5px 10px;}
+#inmain_block {margin:0 0px;width:100%}
+#oldpassword_block td {padding-top:14px}
+</style>
+<![endif]-->
+</head>
+<body>
+{BEGIN body}
+{$header}
+<table align=center id="center_block"><tr><td id="contents_block">
+<div id="header_block" class="upeditmenu">
+<b><font size=+1>Change password</font></b>
+</div>
+<div id="fields_block" class="blackshade">
+Password was changed<br><br>
+<a {$backlink_attrs} class="tablelinks">Back</a>
+</div>
+</td></tr></table>
+{$footer}
+{END body}
+</body>
+</html>

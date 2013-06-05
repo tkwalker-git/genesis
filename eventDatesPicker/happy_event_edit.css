@@ -1,0 +1,313 @@
+.clear, .z-clear {
+	clear: both
+}
+
+
+h1, h2, h3, h4, label{
+	color: #000;
+	
+}
+
+h2{
+	font-size: 1.3em
+}
+
+h2 small{
+	font-size: 0.8em;
+	font-weight: normal
+}
+
+form label{
+	display: block;
+/*	font-size:10px;
+	font-weight:bold;*/
+	text-align:right;
+	float:left;
+	margin: 5px 12px 0 0
+}
+
+form label.z-inline {
+	float: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 24px;
+    margin: 0;
+    text-align: left;
+    width: 114px;
+}
+
+form h2 small sup, form label sup {position: relative; top: 5px; color: red}
+fieldset ul {list-style: none; margin: 0; padding: 0}
+fieldset li.z-field {padding:0 0 15px}
+select {border: 1px solid #949CA8 }
+textarea {height: 120px; width: 460px}
+.z-form-panel-container {width: 680px; margin: 0; padding: 0; display: block; position: relative; float: left}
+.z-right-column {float: right; margin-right:5px; margin-top:0; width:250px}
+ol.z-big-dot-normal, ol.z-big-dot-emphasized {list-style: none; margin: 0; padding-left: 10px; margin-top: 10px}
+ol.z-big-dot-normal li.z-big-dot, ol.z-big-dot-emphasized li.z-big-dot {font-size:1em; margin-bottom:0; padding: 0 0 10px 10px; line-height: 1.5em}
+ol.z-big-dot-normal li.z-big-dot h4, ol.z-big-dot-emphasized li.z-big-dot h4 {font-size:1.5em; line-height: 1em; font-weight: bold; margin: 0; margin-left: 25px; padding: 0; margin-bottom: 3px}
+ol.z-big-dot-normal li.z-big-dot p.z-big-dot, ol.z-big-dot-emphasized li.z-big-dot p.z-big-dot {font-size: 1.1em; margin: 0; margin-left: 25px}
+ol.z-big-dot-normal li.z-item-1 {background:transparent url(/images/form/bkg_step1.gif) no-repeat scroll left top }
+ol.z-big-dot-normal li.z-item-2 {background:transparent url(/images/form/bkg_step2.gif) no-repeat scroll left top }
+ol.z-big-dot-normal li.z-item-3 {background:transparent url(/images/form/bkg_step3.gif) no-repeat scroll left top }
+ol.z-big-dot-emphasized li.z-item-1 {background:transparent url(/images/form/bkg_upgrade_1.png) no-repeat scroll left top }
+ol.z-big-dot-emphasized li.z-item-2 {background:transparent url(/images/form/bkg_upgrade_2.png) no-repeat scroll left top }
+ol.z-big-dot-emphasized li.z-item-3 {background:transparent url(/images/form/bkg_upgrade_3.png) no-repeat scroll left top }
+input.z-input-time {margin-right:3px; width:45px}
+input.z-input-date {padding:3px; width:90px}
+label.z-input-date-label {margin:0 5px 0 0; text-align: left; width:80px; float: left; display: block; font-size:10px; font-weight:bold}
+ul.z-calendar-tabs {list-style: none; display: block; font-size:10px; border-bottom:1px solid #CCC; margin:0; padding:0; width:568px; height: 23px}
+ul.z-calendar-tabs li {float: left; font-size:10px; list-style-image:none; list-style-position:outside; list-style-type:none; padding: 5px 5px 2px 5px; border: 1px solid #CCC; margin-right: 5px}
+ul.z-calendar-tabs li.z-current {background: #FFFFFF none repeat scroll 0 0; border-bottom: 1px solid #FFF}
+ul.z-calendar-tabs li.z-current a {text-decoration: none; color: #5D6269}
+div.z-calendar-view, div.z-advanced-view {background:white none repeat scroll 0 0;
+/*border-bottom:1px solid #CCC; border-left:1px solid #CCC; border-right:1px solid #CCC;*/
+padding:0; background-color:#FFF; width: 563px}
+div.yui-skin-sam {font-size: 12px; padding:10px; border:#ccc solid 1px; margin-top:-1px; }
+div.z-simple-box {border: 1px solid #CCC; padding: 5px; background:#fff}
+input, select {padding: 3px; font-family:Arial,Sans-Serif}
+input.z-full, input.z-half, input.z-two-thirds, input.z-quarter, input.z-single, input.z-phone, input.z-time, input.z-date, input.z-entry, input.z-budget, textarea, select {border:1px solid #949ca8; padding:3px}
+input.z-full:focus, input.z-half:focus, input.z-two-thirds:focus, input.z-quarter:focus, input.z-single:focus, input.z-phone:focus, input.z-time:focus, input.z-date:focus, input.z-entry:focus, input.z-budget:focus, textarea:focus, select:focus {color: #000; border:1px solid #61656b}
+input.z-full {width:460px; margin-right:3px}
+input.z-half {width: 260px; margin-right:3px}
+input.z-quarter {width: 115px; margin-right:3px}
+input.z-two-thirds {width:230px; margin-right:3px}
+input.z-third {width:60px; margin-right:3px}
+input.z-phone {width:135px}
+input.z-single {width:15px; margin-right:3px}
+input.z-date {width:80px}
+input.z-time {width:45px; margin-right:3px}
+textarea {width:460px; height:120px}
+.z-note{ color:#999999; font-size:10px; font-style:normal}
+.z-dark{ color:#5D6269}
+div.z-upgrade-price-dot {float: right; background: transparent url(/images/form/bkg_upgradePrice.png) no-repeat scroll 0 0; position: relative; left: -5px; top: -30px; width: 150px; height: 150px}
+div.z-upgrade-price-dot div {color:#FFFFFF; font-size:11px; font-weight: bold; position: absolute}
+div.z-upgrade-price-dot div.z-dot-top {left: 47px; top: 37px}
+div.z-upgrade-price-dot div.z-price {font-size:57px; left:33px; top:48px}
+div.z-upgrade-price-dot span.z-dollar-sign {font-size:14px; font-weight:bold; position:relative; text-align:center; top:-26px; left: 3px}
+div.z-upgrade-price-dot span.z-cents {font-size:14px; font-weight:bold; margin:0; position:relative; text-align:center; top:-27px}
+div.z-upgrade-price-dot div.z-dot-bottom {left: 52px; top: 105px}
+div.z-upgrade-price-dot div.z-price-note {color: #999999; left: 10px; top: 150px}
+input.z-promo-code {width: 70px}
+.z-left {float: left}
+.z-right {float: right}
+.z-error-field {background:#FBE3E4 none repeat scroll 0 0; border: 2px solid #FBC2C4; color:black; padding-top: 5px; padding-bottom: 5px}
+ul.z-tabs {list-style: none; display: block; font-size:10px;  margin:0; padding:0; width:568px; height: 21px}
+ul.z-tabs li {float: left; font-size:10px; list-style-image:none; list-style-position:outside; list-style-type:none; padding: 3px 5px 3px; border: 1px solid #CCC; margin-right: 5px; background: transparent url(/images/form/bkg_dateTab2.png) repeat scroll 0 0}
+ul.z-tabs li.z-current {background: #FFFFFF none repeat scroll 0 0; border-bottom: 1px solid #FFF}
+ul.z-tabs li.z-current a, #eventInformation div.z-partner-descriptions-block ul.z-tabs li.z-current a {text-decoration: none; color: #5D6269}
+div.z-tab-content {background-color: #FFF; border-top: none;
+/*border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC;*/
+margin: 0; display: none}
+label.z-non-standard-field {font-style:italic}
+.z-required {color: red}
+.z-heading {font-weight: bold; color: #5D6269}
+.z-drag-box {border: 1px dashed #CCC}
+.z-draggable {cursor: move}
+.z-group-fieldset .z-buttons {margin-left: 20px}
+.z-form-action-link-block {margin: 0 10px 20px 25px}
+.z-form-action-link-block a {font-size: 130%; color: #000198; font-weight: bold}
+.z-form-action-link-block span {font-size:110%; position:relative; top:-1px}
+.z-presale-date-field {position: relative; margin-top: 5px}
+.z-presale-popup-date {font-size:13px; position: absolute; left:0; top:0; z-index:1; width: 182px; height: 230px; background: #fff}
+button img {position: relative; top: 2px; margin-right: 3px}
+#z_listing_event {margin-top: 20px; margin-left: 20px}
+div.z-group {display: block; width: 100%; padding: 0; border: 0; margin-bottom: 10px}
+div.z-group h2 {display: block; padding-top: 18px; padding-left: 25px; background-color: transparent; background-repeat: no-repeat; width: 100%; height: 35px; margin: 0; text-align: left; overflow: hidden; font-weight:bold; background-image: url(/images/form/2bkg_group1.png)}
+div.z-group fieldset.z-group-fieldset {background: url(/images/form/2bkg_fieldset_content.png) repeat-y; display: block; margin: 0; width: 94%; border: 0; padding-right: 25px}
+div.z-group div.z-bottom {display: block; position: static; background-color: transparent; background-repeat: no-repeat; border: 0; background-image: url(/images/form/2bkg_fieldset_bottom.png); padding: 0; margin: 0; width: 100%; height: 25px; clear: both}
+div.z-group h2 button {margin-left: 20px}
+div.z-group fieldset ul.z-controls {margin-left: 10px}
+#z_listing_event_form_information ul.z-controls {width: 631px}
+#z_listing_event_form_location ul.z-controls {width: 350px}
+div.z-panel-information ul.z-controls li {margin-bottom: 10px}
+div.z-panel-information ul.z-controls label {width: 130px; float: left; font-size: 0.9em; font-weight:bold; margin:5px 12px 0 0; text-align:right; display: block; position: relative; top: -2px}
+div.z-panel-information ul.z-controls li.z-note {margin-left: 145px; margin-top: 15px; margin-bottom: 3px}
+div.z-group input.z-full, div.z-group textarea.z-full {width: 460px}
+li.z-little-dot-item {background: transparent url(/images/form/upgrade_bullet.png) no-repeat scroll left top; padding-left: 18px}
+div.z-sub-group {background-color: #fff; margin-left: 30px; width: 594px; padding: 0; border: 3px solid #EAEBEE}
+.z-sub-group-panel {margin-top: 10px}
+div.z-sub-group h3 {background-color: #90BA2D; width: 579px; height: 27px; padding: 5px 5px 5px 10px; font-size:1.8em; font-weight:bold; color: #fff; margin: 0}
+div.z-sub-group h3 img {vertical-align: middle}
+#chooseUpgrade {font-weight:bold; margin: 0 0 10px 20px; padding:5px; vertical-align: middle; color: #5D6269}
+#chooseUpgrade img {padding:3px 5px 2px 0; vertical-align:middle}
+div.z-group ol.z-big-dot-normal h3, div.z-group ol.z-big-dot-normal h4 {padding-top: 4px; margin-left: 3px; font-size: 1.0em; font-weight: normal}
+div.z-group ol.z-big-dot-normal li.z-big-dot {font-size: 1.1em; font-weight: normal; padding-left: 27px; margin-bottom: 10px; margin-left: 5px}
+table.z-event-occurrences-heading {width: 100%; background-color: #45bb96; color:#fff}
+table.z-event-occurrences-heading th {padding: 8px 0 8px 10px }
+div.z-block-event-occurrences {width: 100%;  max-height: 270px;  min-height: 108px; overflow-y: auto; overflow-x: hidden; border-bottom:1px solid #CCCCCC; position: relative; left: 0; top: 0}
+table.z-event-occurrences {width: 100%; border-spacing: 0}
+table.z-event-occurrences td {background-color: #EDF4E4; border: none; border-left: 1px solid #CCCCCC; padding: 8px 0 8px 10px; font-size: 12px; text-align: left}
+table.z-event-occurrences td a {   color: #000099;
+    cursor: pointer;
+    display: block;
+    font-size: 10px;
+    text-decoration: none;}
+#z_event_occurrences .z-col-1 {width: 140px}
+#z_event_occurrences .z-col-2 {width: 165px}
+#z_event_occurrences .z-col-3 {width: 165px}
+#z_event_occurrences .z-col-4 {width: 69px}
+#z_event_occurrences .z-layer-end-time {padding: 0; margin: 0}
+#z_event_occurrences .z-occurrence-start-time-layer {margin-bottom: 3px}
+#z_calendar_container {width: 535px}
+.z-end-time-toggle {cursor: pointer}
+#z_total_occurrences_block {float: left}
+#z_clear_occurrences_block {float: right}
+div.z-table-bottom {padding:2px 0; text-align:right}
+#z_listing_event_form_dates ol.z-big-dot-normal {width: 600px}
+div.z-selected-venue {color:#333333; font-size:150%; font-weight:bold; margin:0 0 15px 20px; padding:0; width:350px}
+div.z-selected-venue h3 {margin: 0; padding: 0}
+div.z-selected-venue p {font-size: 66%; color: #666; font-weight: bold; margin: 0; padding: 0; margin-bottom: 20px}
+div.z-selected-venue a {font-size: 66%}
+div.z-layer-select-venue {}
+div.z-layer-select-venue ul.z-controls {margin-top: 10px; margin-left: 0}
+div.z-layer-select-venue ul.z-controls li {margin-bottom: 5px}
+div.z-layer-select-venue ul.z-controls li label {width: 50px}
+div.z-layer-select-venue li.z-note {margin: 0; padding: 0; margin-left: 63px}
+div.z-layer-select-venue li button {margin-left: 60px}
+#z_listing_event_form_review button.z-submit {margin-left: 20px}
+#z_listing_event_form_premium {position: relative; top: 0px; left: 0px}
+#z_listing_event_form_premium div.z-upgrade-price-dot {position: absolute; left: 480px; top: 70px}
+.z-listing-summary {position: fixed; top: 102px}
+.z-listing-summary h2 {background: transparent url(/images/form/bkg_summary_top2.png) no-repeat scroll 0 0; width: 234px; height: 26px; color: #FFF; padding-top: 10px; padding-left: 15px; margin: 0}
+.upsale h3, .upsale h4 {width: 234px; color: #FE9F31; padding-top: 10px; padding-left: 15px; margin: 0}
+.upsale h3{ font-size: 18px; font-weight:bold}
+.upsale h4{ font-size: 14px}
+.upsale ul{ padding-top: 10px; padding-left: 25px; margin: 0}
+.upsale ul li{ color: #FE9F31; width: 234px; padding: 0; margin: 0}
+.upsale ul li .highlight{ font-weight:bold; color: #666666}
+.upsale ul li .summary{ color: #666666}
+.z-listing-summary fieldset h2 {background: none}
+.z-listing-summary fieldset {background: transparent url(/images/form/bkg_summary_content2.png) repeat scroll 0 0; width: 249px; margin: 0; padding: 0; border: none}
+.z-listing-summary fieldset ul {width: 220px; margin-left: 12px; border-color:#7C9F27; border-style:solid; border-width:2px 1px 1px}
+.z-listing-summary fieldset ul li {background-color: #FCFCFC; padding: 3px}
+.z-listing-summary fieldset ul li.z-odd {background-color: #F9F9F9}
+.z-listing-summary fieldset ul h3 {margin: 0}
+.z-listing-summary div.z-bottom {background: transparent url(/images/form/bkg_summary_bottom2.png) no-repeat scroll 0 0; width: 249px; height: 40px}
+#promo_code {width: 70px}
+#z_input_event_description_count {margin-left: 150px}
+#z_status {display: none; font-size: 16px; padding: 6px; color: #000; background: white}
+#z_user_type {padding: 0px 10px; color: black; text-align: right; font-weight: bold; font-style: italic}
+.z-error-field .z-form-feedback {color: black; margin-left: 10px}
+ul.z-controls li.z-error-field .z-form-feedback {margin-left: 150px}
+div.z-partner-descriptions-block {display: block; margin-left: 142px; height: auto; position: relative}
+div.z-partner-descriptions-block ul.z-tabs {width: 470px; float: none}
+div.z-partner-descriptions-block div.z-tab-content {width: 458px; padding: 5px}
+div.z-partner-descriptions-block textarea {width: 450px}
+div.z-partner-descriptions-block div.z-tab-content li.z-note {margin-left: 142px}
+#z_ps_description_note {text-align: right; margin-right: 30px; margin-top: 6px}
+#z_remove_desc_block {position: absolute; top: -2px; left: 175px; width: 310px}
+#z_remove_desc_block label {display: inline; float: none; text-align: left; position:relative; top:-3px; width:130px}
+div.z-date-range-block {float:left; position:relative; top: 5px; left: 5px; border:none}
+div.z-end-date-block {margin-top: 10px}
+#z_repeat_pattern {font-size: 10px; width: 290px; border-left: 1px solid #CCCCCC; float: right; margin-left: 0; padding: 15px; min-height:204px}
+#z_field_repeat_pattern_list {width: 100%}
+div.z-popup-date {display:none; font-size:13px; left:0; position:absolute; top:0; z-index:1}
+#z_event_occurrences div.z-simple-box {width: 579px}
+label.z-venue-field-label {width: 70px}
+div.z-group fieldset ul.z-venue-search {margin-top: 27px; position: relative; left: -41px}
+/* map div -- since mapcontainer is absolutely positioned, this will need to be sized to ensure * that fieldset block cannot shrink to a smaller height than would fit the map. */ #z_map {margin: 0 0 0 0; margin-right: 30px; height: 250px; width: 1px; display: block; float: right}
+#z_map_positioner {margin: 0; padding: 0; left:390px; position:absolute}
+#mapcontainer {height:250px; width:250px}
+div.z-venues-loading {background-color:#999; text-align:center; position: relative; top: 10px; left: 32px; width: 589px}
+.z-venue-search-list {margin-left: 0; width: 589px; border: none; position:relative; top:10px; left:-13px}
+.z-venue-search-list div.z-venue-table-container {padding: 5px; width: 580px; background-color: #f7f8f8; border:solid 1px #fff; float:left; margin: 0}
+.z-venue-search-list div.innerframe {overflow: auto; width: auto; height: 230px}
+.z-venue-search-list table {width:560px}
+.z-venue-search-list table thead tr td {font-size: 1.1em; font-weight: bold; padding: 0px 0px 0px 10px; text-align:center; background-color: #e3e3e3; border: solid 1px #ccc}
+.z-venue-search-list table tfoot tr td {text-align: center; font-size: 1.1em; font-weight: bold; background-color: #e3e3e3; border-top: none; border-right: solid 1px #ccc; border-bottom: solid 1px #ccc; border-left: solid 1px #ccc; width: auto; /*Firefox needs this*/ padding: 10px; text-align:center}
+.z-venue-search-list table tfoot tr td input {margin-top:5px;}
+.z-venue-search-list table tr td.z-name {width:auto;background-color: #fcfcfc;border-bottom: solid 1px #ccc; border-left: solid 1px #ccc;padding:5px 5px 5px 10px;font-size:10px; font-weight:normal;}
+.z-venue-search-list table tr td.z-select {width:80px;background-color: #fff;border-bottom: solid 1px #ccc;border-right: solid 1px #ccc;}
+.z-venue-search-list p.z-venue-name{ font-size:1.2em; font-weight:bold; line-height:normal; margin: 0px; margin-top: 2px}
+.z-venue-search-list p.z-venue-name span {font-weight:normal}
+.z-venue-search-list p.z-venue-address{ font-size:1.1em; line-height:normal; margin:0 0 2px}
+.z-venue-search-list p.z-venue-lock{margin-top:5px;}
+.z-venue-search-list table tr td.z-odd{background-color:#f9f9f9;}
+.z-venue-search-list table tr td.z-number {width:auto; background-color: #fff; border-bottom: solid 1px #ccc; border-left: solid 1px #ccc; padding:5px; text-align:center; font-size: 16px; font-weight: bold}
+.z-venue-search-list table tr td.z-number img {width: 20px; height: 27px}
+.z-venue-search-list table tr td.z-results-summary {background-color:#FFFFFF; border-left:1px solid #EEEEEE; font-size:0.8em; font-weight: normal; border-top: 4px solid #eee; border-bottom: 4px solid #eee padding: 5px 5px 5px 5px; width:auto; white-space: nowrap}
+.z-venue-search-list table tr td.z-results-summary div.z-summary {padding: 3px; float: left; position: static; top: 0px}
+.z-venue-search-list table tr td.z-results-summary div.z-page-links {padding: 3px; float: right}
+.z-venue-info {padding: 0px; width:350px; margin: 0px 0px 15px 20px}
+.z-venue-info h3 {font-size: 150%; color: #333; font-weight: bold; margin: 0}
+.z-venue-info p {color:#666666; font-weight: bold; margin: 0; font-size: 110%}
+.z-venue-info a.z-change-location {color:#000099; cursor:pointer; text-decoration:none; font-size: 110%; margin-top: 20px; margin-left: 10px; display: block}
+#z_listing_event_form_premium p.z-start {margin-left: 10px; font-size: 110%}
+ul.z-promo-list {margin-left: 15px; width: 560px; font-size: 110%; padding-top:10px; border-top: 1px solid #9CC930}
+ul.z-promo-list li {margin-bottom: 10px}
+ul.z-promo-list h4 {font-size: 1.2em; font-weight: bold; margin: 0; line-height: 1.2em}
+ul.z-promo-list p {font-size: 1em; margin: 0}
+div.z-more-promo-panel {position: relative; padding-top: 10px; width: 370px}
+div.z-more-promo-panel ul.z-two-col-list {display: block; margin: 0; list-style: none; width: 500px}
+div.z-more-promo-panel ul.z-two-col-list li.z-two-col-item {width: 170px; margin: 0; margin-bottom: 10px; float: left; color: #5D6269; font-size: 0.9em; font-weight: bold}
+.add_upgrade_button {width:160px; position:absolute; top:160px; left:430px}
+.z-upgrade-button-block {padding: 10px; margin-left: 20px}
+.z-upgrade-button-block button {margin-left: 5px; margin-right: 10px}
+.z-upgrade-button-block a img {vertical-align: middle}
+#z_premium_options h4 {font-size: 1.4em; font-weight: bold}
+#z_input_promo_code {width: 70px}
+.z-upgrade-box {border-left:1px solid #EDEEF0; border-right:1px solid #EDEEF0; border-top:2px solid #EDEEF0; padding:5px 5px 10px; width:548px; font-size: 10px; color: #5D6269; line-height: normal}
+.z-photos-only .z-upgrade-box {margin-top: 17px; margin-bottom: 17px; margin-left: 17px}
+li.z-big-dot .z-upgrade-box {margin: 0; position: relative; left: -25px}
+.z-upgrade-box-bottom {border-bottom:1px solid #DDDDDD; margin-bottom:20px}
+.z-upgrade-enhancement-box {background-color:#FAFAFB}
+.z-upgrade-panel {background: transparent url(/images/form/bkg_upgrade_gradient.png) repeat-x scroll left top}
+#z_listing_event_form_premium .z-sub-group-panel {margin-top: 5px}
+.z-premium-option-controls {position: relative; margin-left: 2px}
+.z-premium-option-controls h5 {font-size: 13px; margin-left: 5px; margin-top: 10px; margin-bottom: 5px}
+#z_field_container_budget {margin-top: 20px}
+.z-budget {width: 90px}
+.z-budget-block {text-align: right; padding: 10px}
+.z-budget-period-block {padding: 10px; padding-top: 13px}
+.z-budget-period-block input {margin: 0}
+.z-budget-period-block label {position: relative; float: none; top: -4px; left: 0; display: inline; font-weight: normal}
+.z-add-enhancement-block {padding: 5px}
+.z-upload-input {float: left}
+.z-add-enhancement-description {float: left; margin-left: 5px}
+.z-add-enhancement-description h5 {margin: 0; margin-left: 8px; padding: 0; font-size:1.1em}
+.z-add-enhancement-description p {margin: 0; padding: 0; padding-left: 10px; font-size: 1em}
+.z-upgrade-enhancement-box h5 {font-size:1.2em; font-weight:bold}
+#z_image_preview .z-upgrade-enhancement-box h5 {margin-bottom: 5px}
+.z-upgrade-enhancement-box ul.z-suggestions {list-style-type: disc; width: 475px; margin: 0 10px 12px 30px; padding-left: 20px}
+#z_image_display {margin-top: 12px; padding: 2px; width: 430px}
+#z_image_display li.z-draggable {height: auto; margin: 3px 3px 5px; padding: 0; width: 420px}
+#z_image_uploader ul.z-field-list label, #z_image_editor ul.z-field-list label {display:block; float: none; font-size:10px; font-weight:normal; margin: 0; text-align:left}
+.z-image-block {float:left; height:auto; padding:3px; width:350px}
+.z-image-block img {width: 75px; height: 75px; float: left}
+.z-image-block table {float:right; margin-top:10px; width:250px}
+.z-image-block table td.z-first {width: 18%; text-align: right; padding-right: 5px}
+.z-image-block table td.z-second {width: 82%}
+#z_image_display li {border:2px solid #DDDDDD}
+#z_image_display li.z-first {border-color: #94BE2E}
+.z-image-action-block {float:right; left:-17px; position:relative; top:27px}
+#z_image_preview {position: relative}
+#z_trash {position: absolute; left: 455px; top: 100px; background-color: transparent; background-image: url(/images/form/trash.png); background-position: -25px -10px; width: 78px; height: 100px}
+#z_file_name {position: relative; top: 3px}
+#z_upload_button {background-image: url(/images/btn-video_upload.png); width: 69px; height: 24px; text-align: center; vertical-align: bottom; border: none}
+#z_upload_button:hover, #z_upload_button:active {background-image: url(/images/btn-video_upload_over.png)}
+.z-option-preview-box {background-color: #FFFFFF; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px; width: 525px; font-size: 12px}
+#z_links_display .z-special-links {list-style-type: none}
+#z_links_display .z-special-links li {padding: 2px}
+#z_review_errors {background:#FBE3E4 none repeat scroll 0 0; border:2px solid #FBC2C4; color:black; display:none; padding:6px; margin: 10px 25px; font-size: 100%}
+#z_review_errors h5 {margin-top: 0; margin-bottom: 3px}
+#z_field_venue_id {margin-bottom: 10px}
+div.z-for-ie6 {margin: 0; padding: 0}
+#z_listing_event_form_review div.z-note {margin-left: 25px; margin-bottom: 20px}
+#z_reject_message_block label {font-size: 110%; float: none; text-align: left; margin-top: 20px}
+#z_button_reject {display: block; margin-top: 10px}
+#z_button_update_and_publish {font-weight: bold; font-size: 120%}
+#z_busy_popup img {vertical-align: middle; margin-right: 10px}
+#z_busy_popup p {text-align: center; font-size: 120%}
+#z_cost_summary_detail label {font-size: inherit}
+.tickets {width:90px; text-align:left}
+#z_promo_sub_group p.z-intro {margin-left: 10px; font-size: 13px; font-weight: bold}
+#z_promo_sub_group p.z-preamble {margin-left: 44px}
+.z-premium-option {border-top: #90BA2D 1px solid; margin: 10px; margin-left: 15px; padding-top: 10px}
+.z-premium-option h4 {margin-top: 5px; margin-bottom: 2px}
+.z-premium-option p {margin: 0; margin-left: 30px}
+.z-premium-option label.z-option-label {float: none; display: inline; font-size: 18px; margin-left: 10px; color: #90BA2D}
+.z-premium-option input.z-option-checkbox {float: none; display: inline; margin-left: 0px}
+.z-premium-option-marketing {position: absolute; background-color: #fff; top: 60px; left: 24px; border: 2px solid #9CC930; opacity: 1.0; filter:alpha(opacity=100); width: 500px; height: auto; padding: 10px; cursor: pointer}
+.z-premium-option-marketing p {line-height: 1.5; margin: 0; color: #5D6269; font-size: .9em; font-weight: bold}
+.z-premium-option-overlay {position: absolute; top: 0px; left: 0px; background-color: #ccc; height: 100%; width: 560px; opacity: 0.4; filter:alpha(opacity=40)}

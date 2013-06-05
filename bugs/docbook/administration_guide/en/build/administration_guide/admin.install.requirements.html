@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>System Requirements</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Mantis Bug Tracker Administration Guide"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Installation"
+HREF="admin.install.html"><LINK
+REL="PREVIOUS"
+TITLE="Installation"
+HREF="admin.install.html"><LINK
+REL="STYLESHEET"
+TYPE="text/css"
+HREF="stylesheet.css"></HEAD
+><BODY
+CLASS="SECTION"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Mantis Bug Tracker Administration Guide</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="admin.install.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Installation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+>&nbsp;</TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECTION"
+><H1
+CLASS="SECTION"
+><A
+NAME="admin.install.requirements"
+>System Requirements</A
+></H1
+>		
+
+		<DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="admin.install.requirements.hardware"
+>Server Hardware Requirements</A
+></H2
+>			
+
+			<P
+>MantisBT has modest hardware requirements.
+				It requires a computer that is able to run the
+				server software.
+			</P
+>
+
+			<P
+></P
+><UL
+><LI
+>					<P
+>Server type</P
+>
+					<P
+>The server can be a shared public web server or
+						a dedicated co-located box.
+					</P
+>
+				</LI
+><LI
+>					<P
+>CPU and Memory</P
+>
+					<P
+>As for any web application, you should size your
+						server based on the traffic on the site.
+					</P
+>
+				</LI
+><LI
+>					<P
+>Disk</P
+>
+					<P
+>The application code is less than 20 MB
+					</P
+>
+					<P
+>The amount of disk space required for the database
+						will vary depending on the RDBMS and the volume of
+						data, the main driving factor being the expected number
+						and size of attachments.
+					</P
+>
+				</LI
+></UL
+>
+		</DIV
+>
+
+		<DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="admin.install.requirements.software"
+>Server Software Requirements</A
+></H2
+>			
+
+			<P
+>All of the required software is free for commercial and
+				non-commercial use (open source). Please refer to the
+				table below
+				for minimum and recommended versions.
+			</P
+>
+
+			<P
+></P
+><UL
+><LI
+>					<P
+>Operating System</P
+>
+					<P
+>MantisBT runs on Windows, MacOS, OS/2, Linux, Solaris,
+						the BSDs, and just about anything that supports the
+						required server software.
+					</P
+>
+				</LI
+><LI
+>					<P
+>Web Server</P
+>
+					<P
+>MantisBT is mainly tested with
+						<A
+HREF="http://www.microsoft.com/iis"
+TARGET="_top"
+>Microsoft IIS</A
+> and
+						<A
+HREF="http://www.apache.org/"
+TARGET="_top"
+>Apache</A
+>.
+						However, it is expected to work with any recent web
+						server software.
+					</P
+>
+					<P
+>File Extensions:
+						MantisBT uses only <I
+CLASS="EMPHASIS"
+>.php</I
+> files.
+						If your webserver is configured for other extensions
+						(e.g. .PHP3, .PHTML) then you will have to request the
+						administrator to add support for .PHP files. This should
+						be a trivial modification. Further details can be found
+						in the
+						<A
+HREF="http://www.php.net/manual/en/installation.php"
+TARGET="_top"
+>PHP documentation</A
+>
+					</P
+>
+				</LI
+><LI
+>					<P
+><A
+HREF="http://www.php.net/"
+TARGET="_top"
+>PHP</A
+></P
+>
+					<P
+>The web server must support PHP.  It can be installed
+						as CGI or any other integration technology.
+					</P
+>
+				</LI
+><LI
+>					<P
+>PHP extensions</P
+>
+					<P
+>MantisBT is designed to work in as many environments
+						as possible. Hence the required extensions are minimal
+						and many of them are optional affecting only one
+						feature.
+						<P
+></P
+><UL
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>mandatory</I
+>:
+								the extension for the RDBMS being used (
+									mysqli,
+									pgsql,
+									oci8,
+									mssql/sqlsrv,
+									ibm-db2
+								)
+							</P
+></LI
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>Curl</I
+> -
+								required for the Twitter integration feature
+							</P
+></LI
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>GD</I
+> -
+								required for the graphs feature
+							</P
+></LI
+><LI
+>								<P
+></P
+></LI
+></UL
+></P
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="admin.install.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Installation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="admin.install.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

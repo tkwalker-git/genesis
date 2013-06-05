@@ -1,0 +1,277 @@
+/* CSS Document */
+
+	
+ul, li{
+	margin:0;
+	padding:0;
+	list-style:none
+	}
+	
+.dashbdTabs{
+	float:right;
+	margin-bottom:-6px;
+	overflow:hidden;
+	}
+
+.dashbdTabs li{
+	float:left;
+	background:url(images/db_splitr.png) no-repeat right center;
+	padding:0 2px;
+	}
+	
+.dashbdTabs li:last-child{
+	background:none;
+	}	
+	
+.dashbdTabs li a{
+	float: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 9px;
+	}
+	
+.dashbdTabs li a:hover, .dashbdTabs li .active{
+	text-decoration:none;
+	background:#dedede;
+	color:#308551;
+	behavior:url(border-radius.htc);
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	-khtml-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	}
+
+.db_box{
+	border:solid 1px #cbcbcb;
+	width:445px;
+	float:left;
+	margin-bottom:13px;
+	}
+	
+	
+.db_box span{
+	color:#939598;
+	}
+	
+.db_box .head{
+	font-size:18px;
+	background:url(images/dashB_bar.gif) repeat-x;
+	padding:8px 12px;
+	color:#fff;
+	border:solid 1px #cbcbcb;
+	}
+	
+.head_new{
+	font-size:18px;
+	background:url(images/dashB_bar.gif) repeat-x;
+	padding:8px 12px;
+	color:#fff;
+	border:solid 1px #cbcbcb;
+	}
+	
+.db_flt{
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 139px;
+	vertical-align: middle;
+	width: 50%;
+	float:left;
+	}
+	
+.db_box .active_event{
+	padding:0 0 24px 14px;
+	}
+	
+.db_showEvn{
+	background:url(images/evnt_box.png) no-repeat;
+	width:153px;
+	height:219px;
+	padding-top:11px;
+	float:left;
+	margin-top: 20px;
+	text-align: center;
+	}
+	
+	
+.db_showEvn2{
+	background:url(images/prof_bg.png) no-repeat;
+	width:161px;
+	height:214px;
+	float:left;
+	color:#fff;
+	padding:61px 0 0 0
+	}
+
+.db_showEvn2 #name{
+	padding-top:7px;
+	color:#fff;
+	font-weight:bold;
+	display:block;
+	}
+	
+.db_showEvn2 #type{
+	padding:17px 16px 0 16px;
+	color:#fff;
+	font-weight:bold;
+	display:block;
+	}
+	
+.db_showEvn2 a{
+	width:97px;
+	height:108px;
+	overflow:hidden;
+	display:block
+	}
+	
+.db_nameEvn, .db_dateEvn{
+	font-size: 11px;
+    font-weight: bold;
+	}
+
+.db_dateEvn{
+	color: #58b866;
+	}
+	
+.db_nameEvn a:hover{
+	text-decoration:none;
+	}
+	
+.db_detailEvn{
+	float: left;
+    font-size: 15px;
+    width: 269px;
+	padding-top: 7px;
+	height:267px;
+	border-left:1px solid #CBCBCB
+	}
+	
+.db_fl2{
+	color: #939598;
+    float: left;
+    padding-left: 15px;
+    width: 100px;
+	}
+	
+.db_dtdRow{
+	font-size: 14px;
+    font-weight: bold;
+	border-bottom:#CBCBCB solid 1px;
+    padding:13px 0;
+	}
+	
+.db_dtdRow:last-child{
+	border-bottom:none;
+	}
+	
+.dash_menu{
+	position:relative;
+	height:67px;
+	}
+	
+.dash_menu table{
+	}
+	
+.dash_menu td{
+	padding:0 08px;
+	height:64px; 
+	text-align:center;
+	vertical-align:text-bottom;
+	}
+	
+.dash_menu .bordr{
+	border-right:#c1c1c1 solid 1px;
+	}
+	
+.dash_menu td a{
+	float:center;
+	font-size:11px;
+	font-weight:bold
+	}
+	
+.dash_menu td a:hover{
+	text-decoration:none;
+	color:#0598fa
+	}
+	
+.dash_menu td a img{
+	margin-bottom:3px;
+	}
+
+.videos_boxs{
+	padding-top:40px;
+	}	
+	
+.videos_boxs .vBox{
+	float:left;
+	width:204px;
+	text-align:center;
+	color:#231f20;
+	font-size:11px;
+	font-weight:bold;
+	padding-right:30px;
+	}
+
+.videos_boxs .vBox span{
+	padding-bottom:10px;
+	display:block;
+	font-size:13px;
+	}
+
+.videos_boxs .vBox img{
+	cursor:pointer;
+	}
+
+	
+.videos_boxs .last{
+	padding-right:0;
+	}
+	
+.videos_boxs .vBox div{
+	background:url(images/video_box.gif) no-repeat;
+	height:127px;
+	padding-top:7px;
+	}
+	
+.clear{
+	font-size:0;
+	line-height:0;
+	padding:0;
+	width:0;
+	height:0;
+	margin:0;
+	clear:both
+	}
+	
+#videoArea{
+	display: none;
+    height: 540px;
+    margin: 0 auto;
+    width: 859px;
+	}
+	
+#videoArea .closeVd{
+	cursor:pointer;
+	}
+	
+.add_links td{
+		padding:18px;
+		border-bottom:#CBCBCB solid 1px;
+		}
+
+.add_links td a{
+		font-weight:normal;
+		}
+
+.add_links2 td{
+		padding:13px;
+		border-bottom:#CBCBCB solid 1px;
+		font-weight:bold
+		}
+		
+.add_links2 td a{
+		font-weight:normal;
+		}
+				
+.add_links td:last-child{
+	/*	border-bottom:none; */
+		}
